@@ -3,12 +3,61 @@
     <head>
         <meta charset = "utf-8">
         <title>Week 1</title>
+        <link rel="stylesheet" href="small.css">
     </head>
 
     <body>
+        <section>
 <h1>Reading Notes</h1>
-<p>Insert things I learned and questions</p>
 
+<h2>Doing Stuff with Web Things</h2>
+<p>when pulling data from the HTML into javascript, use value for input elements and innerHTML for section elements.</p>
+<p>If a user inputs text into a field that's just meant for numbers, you can use this statement:
+    <div class="example">if(isNaN(aNumber)){
+    ......
+    }
+</div></p>
+<p>A loop simplified. I like how this is laid out.</p>
+<ul>
+    <li>1. the for keyword </li>
+      <li>2. a variable to keep track of the location you are at in the array </li>
+       <li> 3. a check to see if the loop should continue </li>
+        <li>4. an update that increases the location tracking variable by one </li>
+        <li>5. the lines of code to execute every time you go around the loop</li>
+</ul>
+<div class="example">
+    for(i = 0; i < x; i++){
+        ...
+    }
+</div>
+
+<p>+= appends whatever is on the left. 17 =+ 3 will make 20. So displaying a result from javascript like this</p>
+<div class="example">
+    document.getElementById("display").innerHTML += result;
+</div>
+<p>will take whatever result is and add it to whatever is already in "display". Just using = will assign it, not append it.</p>
+
+<h2>Mobile UX</h2>
+<p>On small mobile devices, keep things easy to reach (reachability), bottom right of the surface. Tablets, keep things on the bottom half.
+    For example, put the nav bar on the bottom.</p>
+<p>Avoid using the hamburger menu icon. Add or use the word "menu" to improve user experience.</p>
+<h2>How to speed things up</h2>
+<p>Reuce image usage throughout sites and apps.
+SVG webfonts are lower bandwidth
+    Optimize and minify css and js files
+    GZIP fields to eliminate unnecessary data.</p>
+    <p class="question">What is a GZIP?</p>
+
+    <h3>Mobile Forms</h3>
+    <p>Use float labels inside text input fields to save space. These are like placeholder text, but they are small and they don't disappear when the user inputs information in the field.</p>
+    <p>Enable "autofill" on forms.</p>
+    <p class="question">How do you enable "autofill"?</p>
+    <P>Show passwords by default, but add a hide button if necessary.</p>
+        <p>Make entering credit card numbers easy by spacing credit card numbers and auto advancing through the mm/yy and cvv fields.</p>
+        <p class="question">How do you put spaces in an input field, and advance a user throughout the rest of the fields?</p>
+
+
+    </section>
 <footer>
     <p>&#169; 2021 | Megan Shaw | BYU Idaho</p>
     <span id="currentDate"></span>
