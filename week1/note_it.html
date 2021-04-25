@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8" />
+    <title>Story Writer</title>
+
+    <script>
+
+function saveNote(){
+    let currentDateAndTime = new Date();
+  let descriptionName = document.getElementById("description_input").value;
+  let  = aNoteText.getElementById("note_editor").value;
+  let aCompleteNote = currentDateAndTime.toLocaleString() + "--" + descriptionName;
+  aCompleteNote =+ "<p>" aNoteText + "</p>";
+
+  let storedNotesString = localStorage.getItem("all_notes");
+  let allNotes = JSON.parse(storedNotesString);
+  if(allNotes == null){
+      allNtoes=[]
+  }
+  allNotes.push(aCompleteNote);
+  let allNotesString = JSON.stringify(allNotes)
+  localStorage.setItem("all_notes", allNotesString)
+}
+
+    </script>
+
+    <style>
+
+textarea {
+  width: 25%;
+  background-color: lightyellow;
+}
+
+    </style>
+
+  </head>
+
+  <body>
+
+<h1>
+    Note It!
+</h1>
+    Description: <input id="description_input"></input>
+
+    <textarea id="note_editor" placeholder="Note it down. Don't forget."></textarea>
+    
+        <button onclick="saveNote()">Save</button>
+      </section>
+
+    <section id="note_display">
+
+    </section>
+  </body>
+  </html>

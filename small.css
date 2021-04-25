@@ -1,0 +1,48 @@
+/*Colors
+01161E blackish
+875C74 purpleish
+388697 teal
+D6FFEF mint
+E4B1AB pink
+*/
+
+body {
+    color: #01161E;
+    font-size: 1.25em;
+}
+
+h1 {
+    font-size: 2em;
+}
+h2 {
+    font-size: 1.5em;
+}
+
+header {
+    margin: 1rem 4rem;
+    padding: 2rem;
+}
+
+section {
+    margin: 1rem 4rem;
+    background-color: #D6FFEF;
+    padding: 2rem;
+}
+
+a {
+    text-decoration: none;
+    color:#388697;
+}
+a:hover {
+    color: #875C74;
+}
+
+.question {
+    color: #875C74;
+}
+footer {
+    background-color: #388697;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+}
