@@ -1,5 +1,12 @@
 //this function gets a value and returns it to the output id
-function parrot() {
+
+/*function parrot() {
+    let input = parseInt(document.getElementById("input").value);
+    document.getElementById("output").innerHTML = input;
+}*/
+
+//the above function converted to an => function
+const parrot = () => {
     let input = parseInt(document.getElementById("input").value);
     document.getElementById("output").innerHTML = input;
 }

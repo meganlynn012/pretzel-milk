@@ -62,17 +62,31 @@ var will have global scope, meaning it would declare a variable across the whole
     }
 </p>
 
-<p>Arrow Functions</p>
+<h3>Arrow Functions</h3>
 <p>const functionName = () => {function body};</p>
 <p>for one-line functions, the {} aren't needed.<br>
     for one parameter, the () is not needed.<br>
     a return statement isn't required if it's the only statement.</p>
     <p>The advantage to these is less code. Use these for short functions.</p>
 
+<h3>forEach()</h3>
+<p>Basically takes out the loop. I've seen them, and they make sense when I see them used, but when I have to use them... my mind turns to mush.</p>
+<p class="example">
+    let array = [red, blue, yellow]; <br>
+    for (i = 0; i < array.length; i++) {<br>
+        document.getElementById("output").innerHTML = `color ${i} is ${array[i]}`<br>
+    }
+</p>
+<p>Can instead be coded like this</p>
+<p class="example">
+    array.forEach( (color,index) =><br>
+    document.getElementById("output").innerHTML = `color ${index} is ${color}`);<br>
+</p>
+<p>Note the arrow function didn't require {} because it was only one line.</p>
 </section>
 
 <section class="coding">
-
+<h2>Team Activity</h2>
 <div class="requirement">
 
 <input type="text" id="input">
