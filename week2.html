@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <meta charset = "utf-8">
+        <title>Week 2</title>
+        <link rel="stylesheet" href="small.css">
+    </head>
+
+    <body>
+        <section>
+<h1>Reading Notes Week 2</h1>
+
+<h2>Variables</h2>
+
+<h3>Reserved Javascript Words</h3>
+<p>These words can be used to name variables, objects, or functions.</p>
+<p>abstract, await, boolean, break, byte, case, catch, char, class, const, continue, debugger, default, delete, do, double, else, enum, export, extends, false, final, finally, float, for, function, goto, if, implements, import, in instanceof, infinity, int, interface, let, long, NaN, native, new, null, package, private, protected, public, return, short, static, super, switch, synchronized, this, throw, throws, transient, true, try, typeof, undefined, var, volatile, void, while, with, yield</p>
+
+<p>const vs let</p>
+<p>const is used when the variable will not be assigned to anything else.</p>
+<p>let is used when the variable may be reassigned later.</p>
+<p class="question">Why would I use const? I see it everywhere, but what if I decide later to change the variable?
+    It seems let is much more flexible. What are the advantages of const over let?</p>
+
+<p class="answer">Trying to reassign const will produce an error, which could be useful in debugging. This chapter
+    says to use const to declare most variables.</p>
+
+<p>let vs var</p>
+<p>const and let are block scoped, meaning they only work in the block they are declared in <p class="question">Like a function?</p>
+var will have global scope, meaning it would declare a variable across the whole program. This can cause a challenge in large programs. </
+
+<p>Naming variables</p>
+<p>_variable refers to properties/methods. Starting with the $ is used by jQuery.</p>
+
+<p>change a string to upper/lower case</p>
+<p class="example">
+    name.toUpperCase();
+    name.toLowerCase();
+</p>
+
+<p class="question">How would I create a code that could capitalize the first letter of a word and keep the rest lower case?</p>
+<span id="caseQuestion"></span>
+
+<p>Use the backtick `` for strings. This will allow the use of "' in regular sentences. Use a \` if you need a ` in the string.</p>
+
+<h2>Functions</h2>
+
+<p>You can send arguments through a function like an array.</p>
+<p class="example">function arguments() {
+    return arguments;
+}
+<p>Call the function and enter the arguments (1,2,3,4,5) like parameters.</p>
+<p>However, these can't be treated like arrays. Do make it an array, at ... right before the last arguement (no space).</p>
+<p>Use arguments in a mean function.</p>
+<p class="example">
+    function mean(...values) {<br>
+        let total = 0;<br>
+        for(const value of values) {<br>
+            total =+ value;<br>
+        }<br>
+        return total/values.length;<br>
+    }
+</p>
+
+<p>Arrow Functions</p>
+<p>const functionName = () => {function body};</p>
+<p>for one-line functions, the {} aren't needed.<br>
+    for one parameter, the () is not needed.<br>
+    a return statement isn't required if it's the only statement.</p>
+    <p>The advantage to these is less code. Use these for short functions.</p>
+
+</section>
+
+<section class="coding">
+
+<div class="requirement">
+
+<input type="text" id="input">
+<button type="button" onclick="parrot()">Click Here</button>
+<span id="output"></span>
+
+</div>
+
+<div class="requirement">
+
+<input type="text" id="integer">
+<button type="button" onclick="sumUp()">Answer</button>
+<span id="sumOutput"></span>
+
+</div>
+
+<div class="requirement">
+
+    <input type="text" id="integer1">
+    <button type="button" onclick="calculate()">+</button>
+    <input type="text" id="integer2">
+    <span id="calcOutput"></span>
+    
+    </div>
+
+</section>
+
+<script src="week2team.js"></script>
+</body>
+</html>
