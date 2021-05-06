@@ -94,13 +94,18 @@
   
     const elderly = inventors.filter(old => old.year < 1600);
     //console.log(elderly);
-    for (i=0; i < inventors.length; i++){
+    for (i=0; i < elderly.length; i++){
       document.getElementById("oldPeople").innerHTML += elderly[i].first + " " + elderly[i].last + "<br>";
     }
    
   
     // Array.prototype.map()
     // 2. Give us an array of the inventors' first and last names
+    const names = inventors.map(inventor => inventor.first + " " + inventor.last);
+    console.log(names);
+    for (i=0; i < names.length; i++){
+      document.getElementById("inventorNames").innerHTML += names[i] + "<br>";
+    }
   
     // Array.prototype.sort()
     // 3. Sort the inventors by birthdate, oldest to youngest
