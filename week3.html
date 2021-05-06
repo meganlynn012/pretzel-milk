@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <meta charset = "utf-8">
+        <title>Week 3</title>
+        <link rel="stylesheet" href="small.css">
+    </head>
+
+    <body>
+
+        <h2>Objects</h2>
+        <p>Objects have properties and methods. Each property is a value. It is written as name:value. The value can be a string, in which case it must be in "". </p>
+        <p>Methods are actions that can be performed on objects. They are written name:function(){}</p>
+        <h3>Object Loop</h3>
+        <p>Use for...in to loop through the properties of an object. The below example will display all the object properties.</p>
+        <p class="example">let txt = ""; <br>
+        let person = {fname:"john", lname:"Doe", age:25}; <br>
+        for (x in person) { <br>
+          txt += person.x; <br>
+        }<br>
+          document.getElementById("output").innerHTML = txt;
+        </p>
+        <p>I can add another property to the above object by doing this:<br>
+          person.nationality = "English";</p>
+        <p>I can also delete a property by doing this:<br>
+          delete person.age;</p>
+        <h3>Methods</h3>
+        <p>Methods allow me to use objects by putting them in a function. I can add a function directly into the value of a property. Here's an example.</p>
+        <p class="example">let person = {<br>
+          fname:"john",<br>
+          lname:"Doe",<br>
+          age:25, <br>
+          fullName() {<br>
+          return this.firstName + " " + this.lastName;<br>
+          }<br>
+          };<br>
+          name = person.fullName();<br>
+          document.getElementById("output").innerHTML = name;</p>
+        <p>The this word refers to the object name.</p>
+        <p class="question">I don't full understand the this keyword. I just use the property name and it works the same. What is the benefit of using this? (Answer, it can be used in a function to call multiple object names. More details in the This section.</p>
+        <p>I can use the 'get' word in place of a function to avoid either reassigning a function or putting the () to call the object property. In the above example I would do this instead.</p>
+        <p class="example">let person = {<br>
+          fname:"john",<br>
+          lname:"Doe",<br>
+          age:25, <br>
+          get fullName() {<br>
+          return this.firstName + " " + this.lastName;<br>
+          }<br>
+          };<br>
+          document.getElementById("output").innerHTML = person.fullName;</p>
+        
+        <h3>Using Objects</h3>
+        <p>convert an object to an array by using Object.values(name);</p>
+        <p class="example">let person = {fname:"john", lname:"Doe", age:25};<br>
+          let array = Object.values(person);</p>
+        <p>This turns the object properties into an array.</p>
+        
+        <h3>This</h3>
+        <p>The 'this' keyword calls the name of an object. This is useful if there is more than one object.</p>
+        <p class="example">let user = { name: "John" };<br><br>
+          let admin = { name: "Admin" };<br>
+          function display() {<br>
+          alert( this.name);<br>
+          }<br>
+        </p>
+        <p>Now I can call the function by assigning the function as a value to the object name<p>
+          <p class="example">user.f = display;<br>
+            admin.f = display;</p>
+        <p>And this runs the function</p>
+        <p class="example">user.f();<br>
+          admin.f();</p>
+
+          <a href="week3team.html">Team Activity</a>
+
+        </body>
+        </html>

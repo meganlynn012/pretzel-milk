@@ -25,7 +25,8 @@ Each week you will simply add new item(s) into your array to have them automatic
 const links = [
     
       '<a href="week1.html">Week 1</a>',
-      '<a href="week2.html">Week 2</a>'
+      '<a href="week2.html">Week 2</a>',
+      '<a href="week3.html">Week 3</a>'
     
   ];
 
