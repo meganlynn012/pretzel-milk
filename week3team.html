@@ -29,7 +29,11 @@
 
 <h2>Stretch Goals</h2>
 
-Testing to see if this pushes.
+<p>7. Sort the names alphabetically by last name</p>
+<p>Aren't they already sorted alphabetically?</p>
+<span id="alphaPeople"></span>
+<p>8. Remove all the duplicates</p>
+<span id="removeDuplicates"></span>
 
 <script>
 
@@ -179,6 +183,16 @@ Testing to see if this pushes.
     
 
     // 5. Sort the inventors by years lived
+
+    //create a variable to shorten the function name
+    const youngOld = findAge(yearDied, yearBorn).sort();
+    //console.log(youngOld[0]);
+    //console.log(names[0]);
+
+    //create a loop to print each part of each array. I'm using the function where I mapped the names and the funtion where I reduced the ages.
+    for (i = 0; i < youngOld.length; i++){
+      document.getElementById("longLive").innerHTML += names[i] + youngOld[i] + "<br>";
+    } 
   
     // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
     // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
@@ -188,6 +202,12 @@ Testing to see if this pushes.
   
     // 7. sort Exercise
     // Sort the people alphabetically by last name
+
+    const alphaP = people.sort();
+    console.log(alphaP);
+    for (i = 0; i < alphaP.length; i++) {
+    document.getElementById("alphaPeople").innerHTML += alphaP[i] + "<br>";
+    };
   
     // 8. Reduce Exercise
     // Sum up the instances of each of these
@@ -207,6 +227,18 @@ Testing to see if this pushes.
       'car',
       'truck'
     ];
+
+    let myOrderedArray = data.reduce(function (accumulator, currentValue) {
+  if (accumulator.indexOf(currentValue) === -1) {
+    accumulator.push(currentValue)
+  }
+  return accumulator
+}, [])
+
+console.log(myOrderedArray);
+for(i = 0; i < myOrderedArray.length; i++) {
+  document.getElementById("removeDuplicates").innerHTML += myOrderedArray[i] + "<br>";
+}
   
           </script>
 
