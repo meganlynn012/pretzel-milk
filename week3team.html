@@ -20,7 +20,9 @@
 <span id="happyBirthday"></span>
 
 <p>4. The number of years each inventor lived.</p>
+<span id="totalAge"></span> <br>
 <span id="ageMatters"></span>
+
 
 <p>5. The inventors sorted by years lived.</p>
 <span id="longLive"></span>
@@ -102,7 +104,7 @@
     // Array.prototype.map()
     // 2. Give us an array of the inventors' first and last names
     const names = inventors.map(inventor => inventor.first + " " + inventor.last);
-    console.log(names);
+    //console.log(names);
     for (i=0; i < names.length; i++){
       document.getElementById("inventorNames").innerHTML += names[i] + "<br>";
     }
@@ -124,14 +126,56 @@
       return comp;
     }
     inventors.sort(compare);
-    console.log(inventors);
+    //console.log(inventors);
     for (i=0; i < inventors.length; i++){
       document.getElementById("happyBirthday").innerHTML += inventors[i].first + " " + inventors[i].last + " " + inventors[i].year + "<br>";
     }
   
     // Array.prototype.reduce()
     // 4. How many years did all the inventors live?
-  
+
+    //isolate the passed value and year value using .map.
+
+    const deaths = inventors.map(death => death.passed);
+    //console.log(deaths);
+    const births = inventors.map(birth => birth.year);
+    //console.log(births);
+
+    //now add all the values in each array to get a total.
+    const addDeaths = (accumulator, currentValue) => accumulator + currentValue;
+    //console.log(deaths.reduce(addDeaths));
+    const addBirths = (a, b) => a + b;
+    //console.log(births.reduce(addBirths));
+
+    //subtract the total of year values to the passed values to get the answer.
+    let totalYears = deaths.reduce(addDeaths) - births.reduce(addBirths);
+    //console.log(totalYears);
+
+    //display the answer
+    document.getElementById("totalAge").innerHTML = totalYears + " total years";
+
+
+    //to get a list of ages of each inventor
+
+
+    const yearDied = inventors.map(died => died.passed);
+    console.log(yearDied);
+    const yearBorn = inventors.map(born => born.year);
+    console.log(yearBorn);
+    const findAge = (yearDied, yearBorn) => {
+      const age = [];
+      for(let i=0; i < yearDied.length; i++) {
+        const subtract = yearDied[i] - yearBorn[i];
+        age[i] = " " + subtract;
+      }
+      return age;
+    };
+    console.log(findAge(yearDied, yearBorn));
+    document.getElementById("ageMatters").innerHTML = "Or" + findAge(yearDied, yearBorn); 
+
+
+    
+
     // 5. Sort the inventors by years lived
   
     // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
