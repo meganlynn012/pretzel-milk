@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <meta charset = "utf-8">
+        <title>Week 4</title>
+        <link rel="stylesheet" href="small.css">
+
+    </head>
+    <body>
+
+        <h1>Week 4</h1>
+        <section>
+        <h2>Forms</h2>
+        <a href="formPractice.html">Form Practice</a>
+        <p>I can call this form in javascript by assigning it as a variable. Since the name
+            of this form is called "search", I assign it by doing this:</p>
+        <p class="example">const form = document.forms["search"];</p>
+        <p>I can use that notation to call any part of the form with a name.</p>
+        <a href="hero.html">Hero Form</a>
+        <p>Types of input fields</p>
+        <p>text</p>
+        <p>Password. This conceals the letters.</p>
+        <p>Checkbox. Can check multiple boxes.</p>
+        <p>Radio. Like checkbox, but only one box can be checked.</p>
+        <p>Hidden. Not for sensitive data, just not displayed by the browser.</p>
+        <p class="question">What's a good example? Why would I use this?</p>
+        <p>File. Upload file button. Most browsers will provide a browse button.</p>
+    </section>
+<section>
+    <h2>Object Oriented-Programming</h2>
+    <p>dice object</p>
+    <p class="example">
+
+        const dice = {
+            sides: 6,
+            roll() {
+                return Math.floor(this.sides * Math.random() + 1)
+            }    
+        }
+    </p>
+    <p>A dice as a contructor function.</p>
+    <p class="example">
+        const Dice = function(sides=6){
+            this.sides = sides;
+            this.roll = function() {
+                return Math.floor(this.sides * Math.random() + 1)
+            }
+        }
+    </p>
+    <p>I used this source <a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object-oriented_JS">here</a> to help me learn.</p>
+    <p>An object class is basically a shell of an object.</p>
+    <p>An instance is that shell filled in with information.</p>
+    <p>I can add subclasses to the shell which will inherit all the properties of the original shell, but the subclass will add on more potiential information.</p>
+    <a href="week4oop.html">Practice</a>
+</section>
+
+<a href="week4team.html">Team Activity</a>
+    </body>
+    </html>

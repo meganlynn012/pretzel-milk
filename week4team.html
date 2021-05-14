@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8" />
+    <title>Week 4 Team Activity</title>
+    <link rel="stylesheet" href="small.css" />
+  </head>
+  <body>
+    <h3>Build a 3X3 board in HTML and CSS.</h3>
+    <p>
+      You could do this with either a table element, or a collection of divs.
+      Both have their advantages and disadvantages.
+    </p>
+
+    <section class="tictac" id="toe">
+      <div class="box row1 col1" data-cell></div>
+      <div class="box row1 col2" data-cell></div>
+      <div class="box row1 col3" data-cell></div>
+      <div class="box row2 col1" data-cell></div>
+      <div class="box row2 col2" data-cell></div>
+      <div class="box row2 col3" data-cell></div>
+      <div class="box row3 col1" data-cell></div>
+      <div class="box row3 col2" data-cell></div>
+      <div class="box row3 col3" data-cell></div>
+    </section>
+    <button type="button" id="resetTictac">Reset</button>
+
+    <h3>Attach a touchend listener to the board.</h3>
+    When a cell is touched it should add either an 'X or an 'O', depending on
+    whether it is player 1 or player 2's turn.
+
+    <h3>Add a reset button.</h3>
+    When touched the reset button should remove all of the marks from the board.
+
+    <script>
+      const xClass = "x";
+      const oClass = "circle";
+      let playerX;
+      const reset = document.getElementById("resetTictac");
+
+      const boxElements = document.querySelectorAll("[data-cell]");
+
+    startGame()
+
+    reset.addEventListener('click', startGame);
+
+    function startGame() {
+        playerX = false;
+        boxElements.forEach((box) => {
+            box.classList.remove(xClass);
+            box.classList.remove(oClass);
+            box.removeEventListener("click", handleClick);
+        box.addEventListener("click", handleClick, { once: true });
+      });
+
+      function handleClick(e) {
+        const box = e.target;
+        const currentClass = playerX ? oClass : xClass;
+        placeMark(box, currentClass);
+        swapTurn();
+      }
+
+      function placeMark(box, currentClass) {
+        box.classList.add(currentClass);
+      }
+
+      function swapTurn() {
+        playerX = !playerX;
+      }
+    };
+
+
+    </script>
+  </body>
+</html>

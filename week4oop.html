@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <meta charset = "utf-8">
+        <title>Week 4 OOP</title>
+        <link rel="stylesheet" href="small.css">
+
+    </head>
+    <body>
+        <section>
+        <p>Put this in the console to activate the createNewPerson() function.</p>
+        <p class="example">const salva = createNewPerson('Salva');
+            salva.name;
+            salva.greeting();</p>
+            <p>I replaced the createNewPerson() function with a constructor function. Here are the two functions to compare.</p>
+            <p>normal function</p>
+            <p class="example">
+                function createNewPerson(name) {
+                    const obj = {};
+                    obj.name = name;
+                    obj.greeting = function() {
+                      alert('Hi! I\'m ' + obj.name + '.');
+                    };
+                    return obj;
+                  }
+            </p>
+            <p>constructor function</p>
+            <p class="example">
+                function Person(name) {
+                    this.name = name;
+                    this.greeting = function() {
+                      alert('Hi! I\'m ' + this.name + '.');
+                    };
+                  }
+            </p>
+            <p>
+                Note, I didn't assign empty brackets in the constructor function. It also uses the 'this' keyword instead of the object name. 
+                'this' is passed from the object's 'name' property. It's important to use the 'this' keyword because the value of 'name' will
+                change when objects are created.
+            </p>
+            <p>Constructor functions are capitalized.</p>
+
+            <p>Add these lines in the console to activate the constructor function.</p>
+            <p class="example">
+
+                person1.name
+person1.greeting()
+person2.name
+person2.greeting()
+            </p>
+
+            <p>the 'new' keyword is used to tell the computer that this will be a new object instance</p>
+
+            <p>put this in the console for a longer greeting.</p>
+            <p class="example">
+                person1['age']
+person1.interests[1]
+person1.bio()
+            </p>
+            <p>(I changed the function so I'm not sure</p>
+        </section>
+        <script>
+
+/*function createNewPerson(name) {
+  const obj = {};
+  obj.name = name;
+  obj.greeting = function() {
+    alert('Hi! I\'m ' + obj.name + '.');
+  };
+  return obj;
+}*/
+
+//This is the same function as above, but as a contructor function. Note, no empty object.
+/*function Person(name) {
+  this.name = name;
+  this.greeting = function() {
+    alert('Hi! I\'m ' + this.name + '.');
+  };
+}
+
+let person1 = new Person('Bob');*/
+let person2 = new Person('Sarah');
+
+//Same constructor function as before, just added properties.
+function Person(first, last, age, gender, interests) {
+  this.name = {
+     first : first,
+     last : last
+  };
+  this.age = age;
+  this.gender = gender;
+  this.interests = interests;
+  this.bio = function() {
+    alert(this.name.first + ' ' + this.name.last + ' is ' + this.age + ' years old. He likes ' + this.interests[0] + ' and ' + this.interests[1] + '.');
+  };
+  this.greeting = function() {
+    alert('Hi! I\'m ' + this.name.first + '.');
+  };
+}
+
+//create an ojbect instance
+let person1 = new Person('Bob', 'Smith', 32, 'male', ['music', 'skiing']);
+//note the values in the () match the values in the function to put them in the right spot.
+
+
+        </script>
+
+    </body>
+    </html>

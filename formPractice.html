@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang='en-us'>
+<head>
+    <meta charset='utf-8'>
+    <title>Search</title>
+</head>
+<body>
+    <form name='search' action='/search'>
+        <input name='searchInput' type="text">
+        <button type='submit'>Search</button>
+    </form>
+<script>
+
+const form = document.forms['search'];
+//This will highlight the search bar field when the user clicks on it.
+const input = form.elements.searchInput;
+//input.addEventListener('focus', () => alert('focused'), false);
+//input.addEventListener('blur', () => alert('blurred'), false);
+//input.addEventListener('change', () => alert('changed'), false);
+
+//This activates when the user clicks the submit button. It takes the user to another page.
+form.addEventListener ('submit', search, false);
+/*function search() {
+    alert(' Form Submitted');
+}
+
+//Stops the user from going to another page
+function search(event) {
+    alert('Form Submitted');
+    event.preventDefault();
+}*/
+
+//Should make an alert that pops up with what the user typed in and submitted.
+function search(event) {
+    alert(`You Searched for: ${input.value}`);
+    event.preventDefault();
+}
+
+</script>
+</body>
+</html>
