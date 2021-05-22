@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="utf-8">
+    <title>Week 5</title>
+    <link rel="stylesheet" href="small.css">
+
+</head>
+
+<body>
+
+    <h1>Week 5</h1>
+    <section>
+
+        <h2>Debugging</h2>
+
+        <p>Coding in strict mode is a good idea. This can help catch errors early on that may impact code later. It also
+            encourages better quality of coding.
+        </p>
+        <p>To activate strict mode, add the following line to a js file.</p>
+        <p class="example">'use strict';</p>
+
+        <p>This line can even be used inside a function so it only applies to code inside that block, which is
+            recommended
+            over applying strict mode to the entire js file. This helps when working with someone else's code.
+        </p>
+
+        <p>When using APIs, and I think anything that would require specific browser features, it is a good idea to have
+            the browser check
+            for those features before it does something that relies on those features being there.</p>
+        <p class="question">Is it a good idea to do an if statement to check that the screen isn't too small? I've seen
+            that done before. Or
+            would be better to do that in CSS?
+        </p>
+
+        <p>So this is where the alert() comes in handy. Use alert() for debugging a code. The code will stop running
+            when an alert() is activated.
+            It won't begin again until the user clicks 'OK'. This helps check that variables and if statements are
+            running properly.
+        </p>
+
+        <p class="example">function amIOldEnough(age){<br>
+            if (age = 12) {<br>
+            alert(age);<br>
+            return 'No, sorry.';<br>
+            } else if (age < 18) {<br>
+                return 'Only if you are accompanied by an adult.';<br>
+                }<br>
+                else {<br>
+                return 'Yep, come on in!';<br>
+                }<br>
+                }</p>
+        <p>There is a bug in that code. The alerts will help find it. age = 12 should be age < 12. Testing with alerts
+                will help find this bug.</p> <h3>Using Debugger</h3>
+                <p>Check the javascript for an example of using the 'debugger' keyword.</p>
+                <p>This is a great video of using the debugger with the inspect tool <a
+                        href="https://www.youtube.com/watch?v=fs8PwQAx_Tw">https://www.youtube.com/watch?v=fs8PwQAx_Tw</a>
+                </p>
+
+                <h3>Using Throw</h3>
+                <p>If an error occurs, I can customize what message is displayed.</p>
+
+                <p>This code displays the square root of a number, but will display NaN if the number is negative.</p>
+
+                <input type="text" id="root" size="5"><button type="button" onclick="squareRoot()">Root It</button>
+                <span id="rootOutput"></span>
+
+                <p>This does the same thing, but I customized the error message if you try a negative number. Check the
+                    console to see it.</p>
+
+                <input type="text" id="ifRoot" size="5"><button type="button" onclick="ifsquareRoot()">Root It</button>
+                <span id="ifrootOutput"></span>
+
+                <p class="question">Why can't I do a throw and display a message in the html at the same time?
+                    My code won't allow both.
+                </p>
+                <p class="example"> function ifsquareRoot(){<br>
+                    let number = parseInt(document.getElementById("ifRoot").value);<br>
+                    if (number < 0) {<br>
+                        throw new RangeError("That's a negative number.");<br>
+                        //I can't do both of these.<br>
+                        document.getElementById("ifrootOutput").innerHTML = "That's a negative number.";<br>
+                        }<br>
+                        else{<br>
+                        document.getElementById("ifrootOutput").innerHTML = Math.sqrt(number);<br>
+                        }<br>
+                        }</p>
+                <h3>Use Try, Catch, & Finally</h3>
+                <p>Running code in a try block will make it run normal, but if there is an exception (error) the catch part of the code 
+                    will activate. Finally will run no matter what the outcome of the try and catch.
+                </p>
+                <p>Please input a number between 5 and 10:</p>
+
+                <input id="demo" type="text">
+                <button type="button" onclick="myFunction()">Test Input</button>
+                <span id="p01"></span>
+    </section>
+    <a href="week5team.html">Team Activity</a>
+    <script>
+        function squareRoot() {
+            let number = parseInt(document.getElementById("root").value);
+            document.getElementById("rootOutput").innerHTML = Math.sqrt(number);
+        }
+
+        function ifsquareRoot() {
+            let number = parseInt(document.getElementById("ifRoot").value);
+            if (number < 0) {
+                throw new RangeError("That's a negative number.");
+                //document.getElementById("ifrootOutput").innerHTML = "That's a negative number.";
+            } else {
+                document.getElementById("ifrootOutput").innerHTML = Math.sqrt(number);
+            }
+        }
+        function tryCatch() {
+            let number = parseInt(document.getElementById("imaginary").value);
+
+        let imagine = imaginarySquareRoot(number);
+        document.getElementById("imaginaryOutput").innerHTML = imagine;
+    }
+        
+    function myFunction() {
+  var message, x;
+  message = document.getElementById("p01");
+  message.innerHTML = "";
+  x = document.getElementById("demo").value;
+  try { 
+    if(x == "")  throw "is empty";
+    if(isNaN(x)) throw "is not a number";
+    x = Number(x);
+    if(x > 10)   throw "is too high";
+    if(x < 5)  throw "is too low";
+  }
+  catch(err) {
+    message.innerHTML = "Input " + err;
+  }
+  finally {
+    document.getElementById("demo").value = "";
+  }
+}
+
+    </script>
+</body>
+
+</html>

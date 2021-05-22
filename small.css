@@ -88,3 +88,9 @@ footer {
     height: 70px;
     background-color: black;
 }
+
+.example{
+    font-family: "Courier New", monospace;
+    background-color: #E4B1AB;
+    padding: 10px;
+}

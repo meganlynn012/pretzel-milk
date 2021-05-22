@@ -33,30 +33,32 @@
     When touched the reset button should remove all of the marks from the board.
 
     <script>
-      const xClass = "x";
-      const oClass = "circle";
+     // const xClass = "x";
+      //const oClass = "circle";
       let playerX;
       const reset = document.getElementById("resetTictac");
 
-      const boxElements = document.querySelectorAll("[data-cell]");
+      const boxElements = document.querySelectorAll(".box");
 
     startGame()
 
     reset.addEventListener('click', startGame);
 
     function startGame() {
-        playerX = false;
+        playerX = true;
         boxElements.forEach((box) => {
-            box.classList.remove(xClass);
-            box.classList.remove(oClass);
+          box.textContent = '';
+            //box.classList.remove(xClass);
+            //box.classList.remove(oClass);
             box.removeEventListener("click", handleClick);
         box.addEventListener("click", handleClick, { once: true });
       });
 
       function handleClick(e) {
         const box = e.target;
-        const currentClass = playerX ? oClass : xClass;
-        placeMark(box, currentClass);
+        e.srcElement.textContent = playerX ? 'X' : 'O';
+        //const currentClass = playerX ? oClass : xClass;
+        //placeMark(box, currentClass);
         swapTurn();
       }
 
