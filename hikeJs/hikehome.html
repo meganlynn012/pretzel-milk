@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <title>Great Hikes (dynamic DOM example)</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="hikeJs/styles.css">
+    <link rel="stylesheet" href="styles.css">
   <!--  <style>
       body {
         margin: 0;
@@ -19,10 +19,13 @@
   </head>
 
   <body>
-    <section>
+    <main>
       <h1>Great hikes</h1>
-<a href="hikeJs/hikehome.html" target="_blank">Hike Example Folder</a>
-</section>
+      <ul id="hikes" class="hikeStyles">
+        <!-- your hike list should be built here. -->
+      </ul>
+    </main>
 
+    <script src="hikeJs/main.js"></script>
   </body>
 </html>
