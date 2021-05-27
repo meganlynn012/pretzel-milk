@@ -1,9 +1,26 @@
 let todoList = []
 
-//Gets user input, makes sure user entered something, and passes it to the array function
-function addItem(){
-let input = document.getElementById("listAdd");
-let item = input.value;
+//transforms the user input into an object and adds it to an array
+function addToArray(item) {
+    const listText = {
+        item,
+        checked: false,
+        id: Date.now()
+    }
+    todoList.push(listText);
+    console.log(todoList);
+};
+
+//Checks for the user to submit something by pressing enter
+const form = document.querySelector(".todo-form");
+form.addEventListener('submit', event => {
+    //this stops the browser from trying to submit the data to a server
+    event.preventDefault();
+    //gets the user input and assigns to usable variables
+    const input = document.querySelector(".todo-input");
+    const item = input.value;
+
+    //makes sure user entered something, and passes it to the array function
 if (item !== "") {
     addToArray(item);
 
@@ -12,28 +29,4 @@ if (item !== "") {
     input.focus();
 }
 console.log(item);
-};
-
-function displayList(listObject){
-    const list = document.getElementById("listAdd");
-    const done = listObject.checked ? "done": "";
-    const node = document.createElement("li");
-    node.setAttribute("class", `todo-item ${done}`);
-    node.setAttribute("data-key", listObject.id);
-    node.innerHTML = `
-        <input id="${listObject.id}" type="checkbox"/>
-        <label for="${listObject.id}" class="checked js-checked"></label>
-        <span>${listObject.item}</span>`;
-        list.append(node);
-}
-
-//transforms the user input into an object and adds it to an array
-function addToArray(item) {
-    const listObject = {
-        item,
-        checked: false,
-        id: Date.now()
-    }
-    todoList.push(listObject);
-    console.log(todoList);
-};
+});
