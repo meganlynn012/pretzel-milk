@@ -1,0 +1,55 @@
+input {
+    width: 75%;
+    padding: 10px;
+    border: 1px solid black;
+
+}
+
+.addBtn {
+width: 25%;
+padding: 10px;
+text-align: center;
+border: 1px solid black;
+}
+
+ul li{
+    list-style: none;
+    position: relative;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+}
+
+ul li:nth-child(odd) {
+    background: lightblue;
+}
+
+ul li.checked {
+    background-color:lightgrey;
+}
+
+/*Create a check mark*/
+ul li.checked::before {
+    content: "";
+    position: absolute;
+    top: 10px;
+    left: 16px;
+    transform: rotate(45deg);
+    height: 15px;
+    width: 7px;
+    border-color: black;
+    border-style: solid;
+    border-width: 0 2px 2px 0;
+}
+
+.fas {
+   position: absolute;
+   right: 0;
+   top: 0;
+   padding: 15px; 
+}
+
+.button {
+    padding: 10px;
+    border: 1px solid black;
+}
