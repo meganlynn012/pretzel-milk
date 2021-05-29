@@ -25,6 +25,7 @@ class Todo {
             //push will add an item to the bottom of the array
             //unshift will add it to the top
             todos.push(todoObject);
+            localStorage.setItem("listContainer",JSON.stringify(todoObject));
             this.display();
             //resets the text
             document.querySelector("#addToList").value = "";
@@ -48,9 +49,13 @@ class Todo {
     }
 
     filter() {
-
-
-    }
+        todoList.showDone == false ? todoList.showDone = true : todoList.showDone = false;
+        //console.log(todoList.showDone);
+        if (todoList.showDone == false){
+        let doneList = todos.filter(done => done.isDone == true);
+        console.log(doneList);
+        }
+    };
 
     display() {
         //clears the content of the array so it doesn't display the entire array each time.
@@ -90,11 +95,9 @@ class Todo {
             //appends the list item to the ul list.
             this.ulElement.appendChild(li);
 
-            document.querySelector("#completeBtn").addEventListener("click", filter => {
-                
-                let doneList = todoList.filter(done => done.isDone == true);
-                console.log(doneList);
-                todoList = doneList;
+            document.querySelector("#completeBtn").addEventListener("click", function (e) {
+                mytodoList.filter();
+            
             });
         })
     }
@@ -119,4 +122,27 @@ document.querySelector(".inputContainer").addEventListener("submit", event => {
 
 
 });
+
+/*const todoList = [];
+
+document.querySelector(".addBtn").addEventListener("click", function add() {
+const listItem = document.getElementById("addToList").value;
+if (listItem !== ""){
+    const todoObject = {
+        id: todoList.length,
+        todoText: input,
+        isDone: false,
+    }
+
+    //push will add an item to the bottom of the array
+    //unshift will add it to the top
+    todoList.push(todoObject);
+    //resets the text
+    document.querySelector("#addToList").value = "";
+    console.log(todoList.todoText);
+    display (todoList.todoText);
+}
+});
+
+function display(item);*/
 
