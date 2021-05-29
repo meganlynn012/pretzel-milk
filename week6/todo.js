@@ -1,4 +1,10 @@
-let todoList = [];
+todoList = {
+    showDone: false,
+    todoList: [],
+}
+
+
+const todos = todoList.todoList;
 
 class Todo {
     constructor(item) {
@@ -11,14 +17,14 @@ class Todo {
         //check to make sure the user input something. If not, nothing will happen.
         if (input !== "") {
             const todoObject = {
-                id: todoList.length,
+                id: todos.length,
                 todoText: input,
                 isDone: false,
             }
 
             //push will add an item to the bottom of the array
             //unshift will add it to the top
-            todoList.push(todoObject);
+            todos.push(todoObject);
             this.display();
             //resets the text
             document.querySelector("#addToList").value = "";
@@ -28,16 +34,21 @@ class Todo {
 
     check(index) {
         //finds the matching index number of the array when the list item is clicked.
-        const selectedIndex = todoList.findIndex((item) => item.id == index);
-        todoList[selectedIndex].isDone == false ? todoList[selectedIndex].isDone = true :
-            todoList[selectedIndex].isDone = false;
+        const selectedIndex = todos.findIndex((item) => item.id == index);
+        todos[selectedIndex].isDone == false ? todos[selectedIndex].isDone = true :
+            todos[selectedIndex].isDone = false;
         this.display();
     }
 
     delete(index) {
-        const selectedDelIndex = todoList.findIndex((item) => item.id == index);
-        todoList.splice(selectedDelIndex, 1);
+        const selectedDelIndex = todos.findIndex((item) => item.id == index);
+        todos.splice(selectedDelIndex, 1);
         this.display();
+
+    }
+
+    filter() {
+
 
     }
 
@@ -45,10 +56,11 @@ class Todo {
         //clears the content of the array so it doesn't display the entire array each time.
         this.ulElement.innerHTML = "";
 
-        todoList.forEach((objectItem) => {
+        todos.forEach((objectItem) => {
             const li = document.createElement("li");
-            //must be an i since the icon code is <i class="fas fa-eraser"></i>
+            
             const delBtn = document.createElement("span");
+            
             li.innerText = objectItem.todoText;
             li.setAttribute("dataId", objectItem.id);
 
@@ -79,7 +91,7 @@ class Todo {
             this.ulElement.appendChild(li);
 
             document.querySelector("#completeBtn").addEventListener("click", filter => {
-
+                
                 let doneList = todoList.filter(done => done.isDone == true);
                 console.log(doneList);
                 todoList = doneList;
