@@ -1,52 +1,78 @@
-input {
-    width: 75%;
-    padding: 10px;
-    border: 1px solid black;
+@import url('https://fonts.googleapis.com/css2?family=Handlee&display=swap');
 
+body{
+    font-family: 'Handlee', cursive;
+}
+
+input {
+    width: 90%;
+    padding-left: 40px;
+    border: none;
+    outline: none;
+    font-size: 2em;
+    font-family: 'Handlee', cursive;
+}
+input::placeholder {
+    font-size: .5em;
+}
+
+.inputContainer {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid black;
 }
 
 .addBtn {
-width: 25%;
+width: 10%;
 padding: 10px;
-text-align: center;
-border: 1px solid black;
+text-align: right;
+font-size: 2em;
+cursor: pointer;
+
 }
 
 ul li{
     list-style: none;
     position: relative;
+    font-size: 2em;
+    border-bottom: 1px lightgrey dotted;
+    width: 100%;
     -webkit-user-select: none; /* Safari */
     -ms-user-select: none; /* IE 10 and IE 11 */
     user-select: none; /* Standard syntax */
+    padding-right: 20px;
+}
+ul li:hover {
+    background-color: lightgrey;
 }
 
-ul li:nth-child(odd) {
-    background: lightblue;
-}
+ul#listContainer:hover {
 
-ul li.checked {
-    background-color:lightgrey;
 }
-
 /*Create a check mark*/
 ul li.checked::before {
     content: "";
     position: absolute;
-    top: 10px;
-    left: 16px;
+    top: 8px;
+    left: -20px;
     transform: rotate(45deg);
-    height: 15px;
+    height: 30px;
     width: 7px;
     border-color: black;
     border-style: solid;
     border-width: 0 2px 2px 0;
+    
 }
 
-.fas {
-   position: absolute;
-   right: 0;
-   top: 0;
-   padding: 15px; 
+.x::after {
+    content: "X";
+    position: absolute;
+    right: 15px;
+    top: 2px;
+    cursor: pointer;
+    padding-left: 50px;
+    padding-right: 15px;
+    
 }
 
 .button {
