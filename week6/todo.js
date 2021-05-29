@@ -3,7 +3,6 @@ todoList = {
     todoList: [],
 }
 
-
 const todos = todoList.todoList;
 
 class Todo {
@@ -25,7 +24,7 @@ class Todo {
             //push will add an item to the bottom of the array
             //unshift will add it to the top
             todos.push(todoObject);
-            localStorage.setItem("listContainer",JSON.stringify(todoObject));
+            localStorage.setItem("listContainer", JSON.stringify(todoObject));
             this.display();
             //resets the text
             document.querySelector("#addToList").value = "";
@@ -51,9 +50,9 @@ class Todo {
     filter() {
         todoList.showDone == false ? todoList.showDone = true : todoList.showDone = false;
         //console.log(todoList.showDone);
-        if (todoList.showDone == false){
-        let doneList = todos.filter(done => done.isDone == true);
-        console.log(doneList);
+        if (todoList.showDone == false) {
+            let doneList = todos.filter(done => done.isDone == true);
+            console.log(doneList);
         }
     };
 
@@ -63,9 +62,9 @@ class Todo {
 
         todos.forEach((objectItem) => {
             const li = document.createElement("li");
-            
+
             const delBtn = document.createElement("span");
-            
+
             li.innerText = objectItem.todoText;
             li.setAttribute("dataId", objectItem.id);
 
@@ -97,7 +96,7 @@ class Todo {
 
             document.querySelector("#completeBtn").addEventListener("click", function (e) {
                 mytodoList.filter();
-            
+
             });
         })
     }
@@ -122,27 +121,3 @@ document.querySelector(".inputContainer").addEventListener("submit", event => {
 
 
 });
-
-/*const todoList = [];
-
-document.querySelector(".addBtn").addEventListener("click", function add() {
-const listItem = document.getElementById("addToList").value;
-if (listItem !== ""){
-    const todoObject = {
-        id: todoList.length,
-        todoText: input,
-        isDone: false,
-    }
-
-    //push will add an item to the bottom of the array
-    //unshift will add it to the top
-    todoList.push(todoObject);
-    //resets the text
-    document.querySelector("#addToList").value = "";
-    console.log(todoList.todoText);
-    display (todoList.todoText);
-}
-});
-
-function display(item);*/
-
