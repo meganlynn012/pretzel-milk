@@ -1,63 +1,34 @@
 <!DOCTYPE html>
 <html lang="en-us">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>The Anxiety List</title>
-    <link rel="stylesheet" href="todo.css">
-    
-  </head>
-  <body>
 
-    <header>
-        <h1>Anxiety Break-Down</h1>
-        <form class="inputContainer">
-        <input type="text" name="item" id="addToList" placeholder="Complete the readings...">
-        <span class="addBtn" id="addButton">+</span>
-        </form>
-      </header>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Anxiety List</title>
+  <link rel="stylesheet" href="todo.css">
 
-      <ul id="listContainer">
-      </ul>
-      <div class="buttonContainer">
-      <span class="button" id="completeBtn" onclick="complete()">Show Completed</span>
-      <span class="button" id="notCompleteBtn" onclick="inProgress()">In Progress</span>
-      <span class="button" id="viewAll" onclick="getStorage()">View All</span>
-      
-      </div>
-    <script src="todo.js"></script>
-    <script src="cursor.js"></script>
-  </body>
-  </html>
+</head>
 
+<body>
 
+  <header>
+    <h1>Anxiety Break-Down</h1>
+    <form class="inputContainer">
+      <input type="text" name="item" id="addToList" placeholder="Complete the readings...">
+      <span class="addBtn" id="addButton">+</span>
+    </form>
+  </header>
 
+  <ul id="listContainer">
+  </ul>
+  <div class="buttonContainer">
+    <span class="button" id="completeBtn" onclick="complete()">Show Completed</span>
+    <span class="button" id="notCompleteBtn" onclick="inProgress()">In Progress</span>
+    <span class="button" id="viewAll" onclick="getStorage()">View All</span>
 
+  </div>
+  <script src="todo.js"></script>
+  <script src="cursor.js"></script>
+</body>
 
-
-
-<!--<!DOCTYPE html>
-<html lang="en-us">
-  <head>
-    <meta charset="utf-8" />
-    <title>The Anxiety List</title>
-    <link rel="stylesheet" href="todo.css">
-  </head>
-  <body>
-
-    <main>
-        <h1>The Anxiety Break-Down</h1>
-        <ul class="listContainer">
-        </ul>
-
-        <form class="todo-form">
-        <input type="text" name="item" id="listAdd" placeholder="Complete the readings..." class="todo-input">
-        </form>
-    </main>
-
-    <div class="delete">
-    </div>
-
-    <script src="todo.js"></script>
-  </body>
-  </html>-->
+</html>

@@ -16,6 +16,7 @@ function add() {
     const input = document.getElementById("addToList").value;
     //console.log(input);
 
+        //verifies the user actually typed something
     if (input !== "") {
         const todoObject = {
             id: Date.now(),
@@ -31,20 +32,21 @@ function add() {
     }
 };
 
-function storage(todoList){
-        //stores inputs in localStorage
-        localStorage.setItem("todoList", JSON.stringify(todoList));
-        display(todoList);
+function storage(todoList) {
+    //stores inputs in localStorage
+    localStorage.setItem("todoList", JSON.stringify(todoList));
+    display(todoList);
 }
-function getStorage(){
-        const reference = localStorage.getItem("todoList");
-        if (reference) {
+
+function getStorage() {
+    const reference = localStorage.getItem("todoList");
+    if (reference) {
         todoList = JSON.parse(reference);
 
         //calls the display function to display the array in localStorage
         display(todoList);
-        }
-};    
+    }
+};
 
 function display(todoList) {
     //clears everything in the ul so it doesn't repeat the entire array each time.
@@ -52,18 +54,18 @@ function display(todoList) {
 
     //check whether isDone = true
     todoList.forEach((item) => {
-        const checked = item.isDone ? 'checked': null;
+        const checked = item.isDone ? 'checked' : null;
 
         const li = document.createElement("li");
         li.setAttribute("data-key", item.id);
 
-        //add checked class to list item if isDone = true. Has to have === because it has be to very =. == just won't cut it.
-        if(item.isDone === true) {
+        //add checked class to list item if isDone = true. Has to have === because == just won't cut it :P
+        if (item.isDone === true) {
             li.classList.add('checked');
         }
 
         li.innerHTML = '<span class="checkbox"></span>' + '<p class="list-item">' + item.text + '</p>' +
-        '<span id="x" class="delete"></span>';
+            '<span id="x" class="delete"></span>';
 
         //display the list by appending the li to the ul
         document.getElementById("listContainer").appendChild(li);
@@ -73,7 +75,7 @@ function display(todoList) {
 //calls the getStorage function right away to display whatever array is in there when the page loads
 getStorage();
 
-//Listens for the user to click the checkcircle or X button
+//Listens for the user to click the circle or X button
 document.querySelector("#listContainer").addEventListener("click", (event) => {
     if (event.target.classList.contains('checkbox')) {
         let selectedId = event.target.parentElement.getAttribute('data-key');
@@ -107,7 +109,7 @@ function remove(id) {
         deleted: true,
         ...todoList[index]
     };
-    todoList = todoList.filter( item => item.id !== Number(id));
+    todoList = todoList.filter(item => item.id !== Number(id));
     //console.log(todoList);
     storage(todoList);
 }
@@ -125,5 +127,3 @@ function inProgress() {
     //console.log(todoStill);
     display(todoStill);
 }
-
-

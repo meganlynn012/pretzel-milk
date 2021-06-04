@@ -56,12 +56,6 @@ ul li {
     justify-content: space-between;
 }
 
-/*input.checkbox {
-    width: 20px;
-    height: 30px;
-    margin: 0;
-}*/
-
 .checkbox {
     height: 15px;
     width: 15px;
@@ -73,6 +67,7 @@ ul li {
     cursor: pointer;
     margin: 6px 0 0 6px;
 }
+
 .list-item {
     margin: 0;
     padding: 0 20px;
@@ -110,7 +105,15 @@ ul li:active {
     padding: 10px;
     border: 1px solid black;
     box-shadow: 2px 2px 2px lightgray;
+    cursor: pointer;
+    -webkit-user-select: none;
+    /* Safari */
+    -ms-user-select: none;
+    /* IE 10 and IE 11 */
+    user-select: none;
+    /* Standard syntax */
 }
+
 .button:hover,
 .button:active {
     box-shadow: 2px 2px 2px darkgray;
