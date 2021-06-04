@@ -1,0 +1,1 @@
+window.addEventListener("load", event => document.getElementById("addToList").focus());

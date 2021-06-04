@@ -22,7 +22,7 @@ function add() {
             text: input,
             isDone: false,
         }
-        //adds the user input into the array todoList.
+        //adds the user input into the array todoList. Unshift instead of push would make the items appear at the bottom.
         todoList.push(todoObject);
         //console.log(todoList);
         storage(todoList);
@@ -50,11 +50,14 @@ function display(todoList) {
     //clears everything in the ul so it doesn't repeat the entire array each time.
     document.getElementById("listContainer").innerHTML = "";
 
+    //check whether isDone = true
     todoList.forEach((item) => {
         const checked = item.isDone ? 'checked': null;
 
         const li = document.createElement("li");
         li.setAttribute("data-key", item.id);
+
+        //add checked class to list item if isDone = true. Has to have === because it has be to very =. == just won't cut it.
         if(item.isDone === true) {
             li.classList.add('checked');
         }
@@ -67,8 +70,10 @@ function display(todoList) {
     });
 }
 
+//calls the getStorage function right away to display whatever array is in there when the page loads
 getStorage();
 
+//Listens for the user to click the checkcircle or X button
 document.querySelector("#listContainer").addEventListener("click", (event) => {
     if (event.target.classList.contains('checkbox')) {
         let selectedId = event.target.parentElement.getAttribute('data-key');
@@ -83,6 +88,7 @@ document.querySelector("#listContainer").addEventListener("click", (event) => {
     }
 })
 
+//changes the isDone value to true and vice versa then stores it in the localStorage
 function check(id) {
     todoList.forEach(item => {
         if (item.id == id) {
@@ -93,6 +99,7 @@ function check(id) {
     storage(todoList);
 };
 
+//deletes the list item and stores the new array in the localStorage
 function remove(id) {
     const index = todoList.findIndex(item => item.id === Number(id));
     //console.log(index);
@@ -105,12 +112,14 @@ function remove(id) {
     storage(todoList);
 }
 
+//filters the list for only the checked items
 function complete() {
     let todoDone = todoList.filter(item => item.isDone);
     //console.log(todoDone);
     display(todoDone);
 }
 
+//filters the list for items not checked
 function inProgress() {
     let todoStill = todoList.filter(item => !item.isDone);
     //console.log(todoStill);
