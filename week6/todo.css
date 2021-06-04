@@ -51,38 +51,58 @@ ul li {
     /* IE 10 and IE 11 */
     user-select: none;
     /* Standard syntax */
-    padding-right: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/*input.checkbox {
+    width: 20px;
+    height: 30px;
+    margin: 0;
+}*/
+
+.checkbox {
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    border: 1px solid black;
+    padding: 5px;
+    background-color: transparent;
+    box-shadow: 1px 2px 1px darkgrey;
+    cursor: pointer;
+    margin: 6px 0 0 6px;
+}
+.list-item {
+    margin: 0;
+    padding: 0 20px;
 }
 
 ul li:hover,
 ul li:active {
-    background-color: lightgrey;
+    box-shadow: 1px 2px 2px darkgrey;
+    border: 1px solid lightgrey;
 }
 
 
-/*Create a check mark*/
-ul li.checked::before {
+.checked::after {
     content: "";
     position: absolute;
-    top: 8px;
-    left: -20px;
+    top: -8px;
+    left: 25px;
     transform: rotate(45deg);
     height: 30px;
     width: 7px;
-    border-color: black;
+    border-color: maroon;
     border-style: solid;
-    border-width: 0 2px 2px 0;
+    border-width: 0 3px 3px 0;
+    background-color: transparent;
 }
 
-.x::after {
+#x::after {
     content: "X";
-    position: absolute;
-    right: 15px;
-    top: 2px;
+    text-shadow: 1px 2px 2px darkgrey;
     cursor: pointer;
-    padding-left: 50px;
     padding-right: 15px;
-
 }
 
 .button {
