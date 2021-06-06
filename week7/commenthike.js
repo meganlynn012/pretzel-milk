@@ -22,4 +22,21 @@ function storeComment(commentBody, hikeName) {
     window.localStorage.setItem("comments", JSON.stringify(comments));
 }
 
-export { storeComment, getComments }
+function showCommentsList(query = null) {
+    const liElements = document.querySelectorAll('li');
+    liElements.length > 1 ? query = query : query = liElements[0].dataset.name;
+    const comments = getComments(query);
+    const commentList = document.getElementById("commentList");
+    commentList.innerHTML = "";
+    for (const i in comments) {
+        const comment = comments[i];
+        let commentListItem = "<li><div>";
+        commentListItem += "<h3>" + comment.hikeName + "</h3>";
+        commentListItem += comment.date + "<br>";
+        commentListItem += comment.content;
+        // commentListItem += "<span class='deleteBtn'>&#10008;</span>"
+        commentListItem += "</div></li>"
+        commentList.innerHTML += commentListItem;
+    }
+}
+export { storeComment, getComments, showCommentsList }
