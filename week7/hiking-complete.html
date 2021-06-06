@@ -1,21 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8" />
     <title>Great Hikes (dynamic DOM example)</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="hikestyle.css">
-    <style>
+</head>
 
-    </style>
-  </head>
-
-  <body>
+<body>
     <main>
-      <h1>Great hikes</h1>
-      <ul id="hikes" class="hikeStyles"></ul>
+        <h1>Great hikes</h1>
+        <ul id="hikes" class="hikeStyles"></ul>
     </main>
 
+    <form class="commentSubmission hidden">
+        <input type="textbox" name="comment" id="commentBody" placeholder="Enter your comment here..."></input>
+        <input type="submit" value="Submit Comment"></input>
+        <input type="button" class="resetBtn" value="Clear all Comments!">
+    </form>
+
+    <section id="listBody"></section>
+
     <script src="app5.js" type="module"></script>
-  </body>
+    <ul id="commentList"></ul>
+</body>
+
 </html>

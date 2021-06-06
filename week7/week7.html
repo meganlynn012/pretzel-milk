@@ -4,18 +4,35 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Week 7</title>
-    <link rel="stylesheet" href="/small.css">
+    <link rel="stylesheet" href="small.css">
     
   </head>
   <body>
     <section>
-        Notes
+        <h1>Notes</h1>
+        <h2>Event Listeners</h2>
+        <p>
+        These are similar to calling a function in the html with onclick. But this acts in the js file.
+        First, call the element in the html with an id or query selector. Add .addEventListner after, then an => function. Like so.
+        </p>
+        <code>
+          document.querySelector(".listContainer").addEventListener((item) event => {<br>
+          some code here <br>
+        call a function<br>
+      function()<br>
+    });
+  </code>
+        <p>Very useful.</p>
+        <h3>Submit inputs</h3>
+        <p>Instead of a button, use an input with type submit. Add a value as an attribute to change the text.</p>
+        <p class="example"><code><xmp><input type="submit" value="Button Text"></input></xmp></code></p>
+        <p>wrap that in a form. Then do the event listener as stated above and grab the form with the query selector. This will
+          allow the user to either click the submit button or simply press enter.
+        </p>
+        <br>
+        <p>Side note... I just learned you can wrap pieces of code in <xmp><code> tags</xmp></p>
+          <p>You can also use <xmp><xmp> tags to wrap html code that you don't want to execute. Apparently they still make the text look like code though.</xmp></p>
     </section>
-
-    <section>
-        <a href="hiking-complete.html">Team Activity</a>
-    </section>
-
 
   </body>
   </html>
