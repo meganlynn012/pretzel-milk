@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Week 7</title>
-    <link rel="stylesheet" href="small.css">
+    <link rel="stylesheet" href="/small.css">
     
   </head>
   <body>
@@ -25,7 +25,7 @@
         <p>Very useful.</p>
         <h3>Submit inputs</h3>
         <p>Instead of a button, use an input with type submit. Add a value as an attribute to change the text.</p>
-        <p class="example"><code><xmp><input type="submit" value="Button Text"></input></xmp></code></p>
+        <code><xmp><input type="submit" value="Button Text"></input></xmp></code>
         <p>wrap that in a form. Then do the event listener as stated above and grab the form with the query selector. This will
           allow the user to either click the submit button or simply press enter.
         </p>
@@ -34,5 +34,20 @@
           <p>You can also use <xmp><xmp> tags to wrap html code that you don't want to execute. Apparently they still make the text look like code though.</xmp></p>
     </section>
 
+    <section>
+    <h2>Functions +</h2>
+    <p>Iffy functions are cool. IIFE, or immediately invoved function expression is a function that will load when the page loads. Like an event listener
+      set to activate on load, but without all the code to state that. Put the whole function in () like this. Just check the console to see that in action.
+    </p>
+    <code>
+      (function(){ <br>
+        const temp = 'World';<br>
+        console.log(`Hello ${temp}`);<br>
+        })();
+    </code>
+    <p>This function type will only run once. It's great for displaying a message when the page loads.</p>
+    <p class="question">Would this type of code be good to use instead of event listeners that activate when the page loads?</p>
+  </section>
+    <script src="week7.js"></script>
   </body>
   </html>
