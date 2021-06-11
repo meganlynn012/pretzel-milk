@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Week 8</title>
+    <link rel="stylesheet" href="starwarsstyle.css">
+    
+  </head>
+  <body onload="fetchPeople()">
+
+    <section class="starwars">
+        <div class="crawl">
+        <div class="title">
+        <h1>Characters in StarWars</h1>
+        </div>
+        <div id="descriptionDiv"></div>
+    </div>
+    <div class="buttons">
+        <button id="previous" onclick="fetchPeople(false)">Back</button>
+        <button id="next" onclick="fetchPeople()">Next</button>
+    </div>
+    </section>
+
+  <script src="week8team.js"></script>
+  </body>
+  </html>
