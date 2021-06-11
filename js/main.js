@@ -30,7 +30,8 @@ const links = [
       '<a href="week4/week4.html">Week 4</a>',
       '<a href="week5/week5.html">Week 5</a>',
       '<a href="week6/week6.html">Week 6</a>',
-      '<a href="week7/week7.html">Week 7</a>'
+      '<a href="week7/week7.html">Week 7</a>',
+      '<a href="week8/week8.html">Week 8</a>'
     
   ];
 

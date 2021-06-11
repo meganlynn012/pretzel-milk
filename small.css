@@ -46,6 +46,9 @@ footer {
     padding: 1rem;
     text-align: center;
 }
+code {
+    background-color: lightgrey;
+}
 
 /*week 4 team activity*/
 .tictac {
