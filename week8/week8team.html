@@ -1,23 +1,39 @@
 <!DOCTYPE html>
-<html lang="en-us">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Week 8</title>
-    <link rel="stylesheet" href="starwarsstyle.css">
-    
-  </head>
-  <body onload="fetchPeople()">
-    <section class="starwars">
-      <h1>Star Wars Characters</h1>
-    <div id="descriptionDiv">
-    </div>
+<html lang="en">
+​
 
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/swapi.css">
+    <link rel="stylesheet" type="text/css" href="css/modal.css">
+    <title>Week 8 Team Activity</title>
+</head>
+​
 
-    <button id="previous" onclick="fetchPeople(false)">Back</button>
-    <button id="next" onclick="fetchPeople()">Next</button> 
+<body onload="fetchPeople()">
 
-</section>
-  <script src="week8team.js"></script>
-  </body>
-  </html>
+    <main>
+        <div id="descriptionDiv">
+            ​
+        </div>
+        <div class="instructions">Click name for more details</div>
+        <div class="buttons">
+            <!-- <button id="previous" onclick="fetchPeople(false)">prev</button>
+            <button id="next" onclick="fetchPeople()">Next</button> -->
+        </div>
+    </main>
+
+    <section class="modal" id="showModal">
+        <span class="close">&times;</span>
+        <div class="modalContent" id="modalDetails">
+
+        </div>
+
+    </section>
+    <script src="js/swapi.js"></script>
+</body>
+​
+
+</html>

@@ -1,0 +1,26 @@
+body {
+    background-image: url("outerspace.jpg");
+    background-color: black;
+    background-size: 1200px;
+    color: #feda4a;
+    }
+
+p {
+    text-align: center;
+    font-size: 2em;
+    cursor: pointer;
+}
+p:hover {
+    color: white;
+}
+
+​ .buttons {
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+}
+
+​ button {
+    width: 20%;
+    height: 30px;
+}
