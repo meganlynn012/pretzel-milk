@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JS Drum Kit</title>
+  <link rel="stylesheet" href="style.css">
+  <script>
+    // When a key is pressed, play its corresponding sound,
+    // and have the corresponding button have class 'played'
+    // for the duration of the sound.
+    function playSound(event) {
+      const key = event.code.replace('Key','');
+      let sound = "";
+      let baseURL = "sounds/"
+      let asciiCharacter = key.charCodeAt(0);
+      //alert(asciiCharacter);
+      if (key === "A")
+      {
+        sound = "clap.wav";
+      }
+      else if (key === "S")
+      {
+        sound = "hihat.wav";
+      }
+      else if (key === "D")
+      {
+        sound = "kick.wav";
+      }
+      else if (key === "F")
+      {
+        sound = "openhat.wav";
+      }
+      else if (key === "G")
+      {
+        sound = "boom.wav";
+      }
+      else if (key === "H")
+      {
+        sound = "ride.wav";
+      }
+      else if (key === "J")
+      {
+        sound = "snare.wav";
+      }
+      else if (key === "K")
+      {
+        sound = "tom.wav";
+      }
+      else if (key === "L")
+      {
+        sound = "tink.wav";
+      }
+      let audio = new Audio(baseURL + sound);
+      audio.onended = () => {
+        //alert("audio done.");
+        removeClass(event);
+
+      }
+      audio.play();
+      addClass(event);
+      moveElement(event);
+  }
+
+    function addClass(e) {
+      const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
+      key.classList.add('playing');
+    }
+
+    function removeClass(e) {
+      const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
+      key.classList.remove('playing');
+    }
+
+    function moveElement(e) {
+      const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
+      const move = 10;
+      key.style.top += move + "px";
+    }
+  
+    document.addEventListener('keydown', playSound);
+  </script>
+</head>
+<body>
+
+
+  <div class="keys">
+    <div data-key="65" class="key">
+      <kbd>A</kbd>
+      <span class="sound">clap</span>
+    </div>
+    <div data-key="83" class="key">
+      <kbd>S</kbd>
+      <span class="sound">hihat</span>
+    </div>
+    <div data-key="68" class="key">
+      <kbd>D</kbd>
+      <span class="sound">kick</span>
+    </div>
+    <div data-key="70" class="key">
+      <kbd>F</kbd>
+      <span class="sound">openhat</span>
+    </div>
+    <div data-key="71" class="key">
+      <kbd>G</kbd>
+      <span class="sound">boom</span>
+    </div>
+    <div data-key="72" class="key">
+      <kbd>H</kbd>
+      <span class="sound">ride</span>
+    </div>
+    <div data-key="74" class="key">
+      <kbd>J</kbd>
+      <span class="sound">snare</span>
+    </div>
+    <div data-key="75" class="key">
+      <kbd>K</kbd>
+      <span class="sound">tom</span>
+    </div>
+    <div data-key="76" class="key">
+      <kbd>L</kbd>
+      <span class="sound">tink</span>
+    </div>
+  </div>
+
+  <audio data-key="65" src="sounds/clap.wav"></audio>
+  <audio data-key="83" src="sounds/hihat.wav"></audio>
+  <audio data-key="68" src="sounds/kick.wav"></audio>
+  <audio data-key="70" src="sounds/openhat.wav"></audio>
+  <audio data-key="71" src="sounds/boom.wav"></audio>
+  <audio data-key="72" src="sounds/ride.wav"></audio>
+  <audio data-key="74" src="sounds/snare.wav"></audio>
+  <audio data-key="75" src="sounds/tom.wav"></audio>
+  <audio data-key="76" src="sounds/tink.wav"></audio>
+
+<script>
+
+</script>
+
+
+</body>
+</html>
