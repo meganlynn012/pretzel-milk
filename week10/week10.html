@@ -1,14 +1,132 @@
 <!DOCTYPE html>
 <html lang="en-us">
-  <head>
+
+<head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Week 10</title>
     <link rel="stylesheet" href="/small.css">
-    </head>
-    <body>
-        <section>
-            <h1>Week 10</h1>
+
+</head>
+
+<body>
+    <section>
+        <h1>Week 10</h1>
+
+        <h2>Client-side Form Validation</h2>
+        <p>use the :valid CSS pseudo class to style form elements that are valid. <br>Use :invald to style form elements
+            the user needs to try again on.</p>
+        <p>Most of the html validation ways is review</p>
+        <p>If the form is created using the Constraint Validation API, validation is much more customizable.</p>
+        <ul>
+            <li>
+                <xmp>HTMLButtonElement (represents a <button> element)</xmp>
+            </li>
+            <li>
+                <xmp>HTMLFieldSetElement (represents a <fieldset> element)</xmp>
+            </li>
+            <li>
+                <xmp>HTMLInputElement (represents an <input> element)</xmp>
+            </li>
+            <li>
+                <xmp>HTMLOutputElement (represents an <output> element)</xmp>
+            </li>
+            <li>
+                <xmp>HTMLSelectElement (represents a <select> element)</xmp>
+            </li>
+            <li>
+                <xmp>HTMLTextAreaElement (represents a <textarea> element)</xmp></li>
+            </ul>
+            <p>Here's a link to the available properites on the Constraint validation API</p>
+            <a href="https://developer.mozilla.org/en-US/docs/Learn/Forms/Form_validation">https://developer.mozilla.org/en-US/docs/Learn/Forms/Form_validation</a>
+
+            <h2>Using Constraint Validation API</h2>
+            <form>
+                <label for="mail">I would like you to provide me with an e-mail address:</label>
+                <input type="email" id="mail" name="mail">
+                <button>Submit</button>
+              </form>
+            <p>
+                This will only accept an email address. It uses javascript to check for an email address. It it's not, it shows a custom message.
+            </p>
+            <p>You can't customize the message with HTML validation only.</p>
+              <script>
+                  const email = document.getElementById("mail");
+
+email.addEventListener("input", function (event) {
+  if (email.validity.typeMismatch) {
+    email.setCustomValidity("I am expecting an e-mail address!");
+  } else {
+    email.setCustomValidity("");
+  }
+});
+              </script>
+
+              <h3>Using novalidate</h3>
+              <xmp><form novalidate></form></xmp>
+              This will disable the browser's validation. This will not disable the constraint validation api. So Javascript will then check for validation
+              instead of the browser. <a href="constraintapi.html" target = "_blank">Here's an example.</a></section>
+              <section>
+
+                <section>
+
+                    <h2>Using Fetch</h2>
+                    <p>I took some notes on this page already in <a href="week8.html" target="_blank">week 8.</a></p>
+                    <h3>Supplying Request Options</h3>
+                    <p>fetch() will accept a second parameter, <xmp>init</xmp></p>
+                    <p>Had to backtrack to understand this, so here we go.</p>
+                    <h3>Function callbacks</h3>
+                    <p>A function callback is when a function is passed as an argument to another function.</p>
+                    <p>So instead of returning the result of a function, I can call the next function and pass the result as a parameter.</p>
+                    <p>Functions are executed in the sequence they are called, like css.</p>
+                    <p>I figured that out already, but it's nice to put a name to what I was doing. I prefer callbacks over using <xmp>return</xmp></p>
+                    <p>Use callbacks in asynchronous functions</p>
+                    <h3>Asynchronous functions</h3>
+                    <p>Asynchronous javascript is when functions are running at the same time as other functions.</p>
+                    <p>So when waiting for an external source to load, like an API, use a callback to call the function after the source loads.</p>
+                    <h3>Javascript Promises</h3>
+                    <p>A promise produces code then calls the function to use the code.</p>
+                    <xmp>myPromise.then(
+                        function(value) { /* code if successful */ },
+                        function(error) { /* code if some error */ }
+                      );</xmp>
+                      <p>I can create something to happen if the promise successfully gets the code or not. Sounds like a good idea to do both.</p>
+                      <p class="questions">Is this where I would do a try and catch code?</p>
+                      <h3>Async and Await</h3>
+                      <p>An async function makes the function return a promise</p>
+                      <xmp>
+                        async function myFunction() {
+                            return "Hello";
+                          }
+                          myFunction().then(
+                            function(value) {myDisplayer(value);},
+                            function(error) {myDisplayer(error);}
+                          );
+                      </xmp>
+                      <p>Await makes a function wait for a promise. It can only be used inside an async function.</p>
+                      <xmp>
+                        async function getFile() {
+                            let myPromise = new Promise(function(myResolve, myReject) {
+                              let req = new XMLHttpRequest();
+                              req.open('GET', "mycar.html");
+                              req.onload = function() {
+                                if (req.status == 200) {myResolve(req.response);}
+                                else {myResolve("File not Found");}
+                              };
+                              req.send();
+                            });
+                            document.getElementById("demo").innerHTML = await myPromise;
+                          }
+                          
+                          getFile();
+                      </xmp>
+                      <p class="question">Do you always use 'await' when using an async function?</p>
+                      <p>Now back to fetch.</p>
+                      <p>A second parameter called init can be added to an async function to control many settings such as method, mode, cache etc...</p>
+                      <p>I don't really understand what all these settings will do though.</p>
+
+
+                </section>
         <a href="team.html">Team Activity</a><br>
         </section>
 
