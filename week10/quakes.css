@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Quicksand&display=swap');
+
+body {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 1em;
+    font-family: 'Quicksand', sans-serif;
+    background-color: #E7DFC6;
+}
+ul {
+    padding: 0;
+}
+
+label {
+    font-size: 1.5em;
+}
+input {
+    padding: 10px;
+    width: 50%;
+    font-size: 1.25em;
+    margin: 1em 0;
+    font-family: 'Quicksand', sans-serif;
+    background-color: #E9F1F7;
+    border: 3px solid #54426B;
+    border-radius: 10px;
+}
+main {
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    font-family: 'Alfa Slab One', cursive;
+    font-size: 3em;
+    color: #54426B;
+    margin: .5em 0;
+}
+a#topLink {
+    text-decoration: none;
+    padding: 1em;
+    background-color: #54426B;
+    color: #E9F1F7;
+}
+#buttonLink {
+    margin: 2em 0;
+}
+
+ul {
+    border-top: 2px solid #54426B;
+    padding-top: 1.5em;
+    font-size: 1.25em;
+}
