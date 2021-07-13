@@ -7,6 +7,8 @@
     border: 1px solid lightgrey;
     width: 30%;
     text-align: center;
+    margin: 0;
+    padding: 0;
 }
 .selection li:hover {
     background-color: lightgrey;

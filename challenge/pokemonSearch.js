@@ -14,14 +14,13 @@ function filterFunction() {
     }
   }
 
-  function getLiValue() {
-    div = document.getElementById("pokeDropdown");
-    li = div.getElementsByTagName("li");
-    console.log(li);
-    li.forEach(item => {
-      txtValue = item.textContent || item.innerText;
-      console.log(txtValue);
-    })
-  }
+document.getElementById("pokelistContainer").addEventListener("click", event => {
+    pokeSearch.value = '';
+    let selectedId = event.target.getAttribute('value');
+    //console.log(selectedId);
+    setInput(selectedId);
+});
 
-
+function setInput(id) {
+  pokeSearch.value = id;
+}
