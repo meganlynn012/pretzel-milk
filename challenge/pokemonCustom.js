@@ -1,0 +1,122 @@
+let pokeModal = document.getElementById("pokeModal");
+
+document.getElementById("searchBtn").addEventListener("click", event => {
+    let pokeName = pokeSearch.value.toLowerCase();
+
+    if (pokeName == "") {
+        alert("You need to enter a Pokemon");
+        return;
+    } else if (!pokemonArray.includes(pokeName)) {
+        alert("Enter a valid name");
+        return;
+    }
+    document.getElementById("pokeModal").style.display = "block";
+
+    let pokeurl = `https://pokeapi.co/api/v2/pokemon/${pokeName}`;
+    //console.log(pokeurl);
+    getPokeDetails(pokeurl);
+})
+
+function closeModal() {
+    document.getElementById("pokeModal").style.display = "none";
+}
+
+async function getPokeDetails(pokeurl) {
+    try {
+        await fetch(pokeurl)
+            .then(response => response.json())
+            .then(data => {
+                //console.log(data.name);
+                //console.log(data.abilities);
+                //console.log(data.types);
+                //console.log(data.moves);
+                displayName(data.name);
+                displayType(data.types);
+                displaySprite(data.sprites, data.name);
+                displayAbilities(data.abilities);
+                displayMoveset(data.moves);
+            })
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+function displayName(name) {
+    //capitalize the first letter of the name
+    let pokemon = casePokemon(name);
+    //console.log(pokemon);
+    document.getElementById("pokemonName").innerHTML = pokemon;
+}
+
+function displayType(types) {
+    document.getElementById("types").innerHTML = "";
+    //console.log(types)
+    let typeNum = 0;
+    types.forEach(type => {
+        //console.log(type.type.name);
+        typeNum++;
+        let pokeTypes = casePokemon(type.type.name);
+        const p = document.createElement("p");
+        p.innerHTML = 'Type ' + typeNum + " " + pokeTypes;
+        document.getElementById("types").appendChild(p);
+    })
+}
+
+function displaySprite(sprite, name) {
+    //console.log(sprite.front_default);
+    document.getElementById("sprite").setAttribute("src", sprite.front_default);
+    document.getElementById("sprite").setAttribute("alt", name + " sprite");
+    //console.log(name + " sprite");
+}
+
+function displayAbilities(abilities) {
+    //console.log(abilities);
+    document.getElementById("ability").innerHTML = "";
+    let labelLang = "Ability ";
+    let idName = "abilityNames";
+    let nameValue = "ability";
+    let location = document.getElementById("ability")
+    let data = ['Select Ability'];
+    abilities.forEach(ability => {
+        //console.log(ability.ability.name);
+        data.push(ability.ability.name);
+    })
+    //console.log(data);
+    dropDown(labelLang, idName, nameValue, location, data);
+}
+
+function displayMoveset(moveset) {
+    //console.log(moveset);
+    document.getElementById("moveset").innerHTML = "";
+    let i;
+    for (i = 1; i < 5; i++) {
+        let labelLang = "Move " + i;
+        let idName = "moveNames" + i;
+        let nameValue = "move" + i;
+        let location = document.getElementById("moveset")
+        let data = ['Select Move'];
+        moveset.forEach(move => {
+            //console.log(move.move.name);
+            data.push(move.move.name);
+        })
+        //console.log(data);
+        dropDown(labelLang, idName, nameValue, location, data);
+    }
+}
+
+function dropDown(labelLang, idName, nameValue, location, data) {
+    let label = document.createElement("label");
+    label.innerHTML = labelLang
+    let select = document.createElement("select")
+    select.setAttribute("id", idName);
+    select.setAttribute("name", nameValue);
+    location.appendChild(label);
+    label.appendChild(select);
+    data.forEach(item => {
+        let option = document.createElement("option");
+        let caseData = casePokemon(item);
+        option.setAttribute("value", item);
+        option.innerHTML = caseData;
+        select.appendChild(option);
+    })
+}
