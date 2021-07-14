@@ -34,6 +34,7 @@ async function getPokeDetails(pokeurl) {
                 displayType(data.types);
                 displaySprite(data.sprites, data.name);
                 displayAbilities(data.abilities);
+                getPokeItems();
                 displayMoveset(data.moves);
             })
     } catch (error) {
@@ -76,13 +77,44 @@ function displayAbilities(abilities) {
     let idName = "abilityNames";
     let nameValue = "ability";
     let location = document.getElementById("ability")
-    let data = ['Select Ability'];
+    let data = [];
     abilities.forEach(ability => {
         //console.log(ability.ability.name);
         data.push(ability.ability.name);
     })
     //console.log(data);
     dropDown(labelLang, idName, nameValue, location, data);
+}
+
+async function getPokeItems(){
+    try {
+        await fetch(`https://pokeapi.co/api/v2/item?limit=954&offset=111`)
+        .then(response => response.json())
+        .then(data => {
+            let items = data.results;
+            //console.log(items);
+            displayItems(items);
+
+        })
+    }
+    catch (error) {
+        console.log(error);
+    }
+}
+
+function displayItems(items){
+document.getElementById("item").innerHTML = "";
+let labelLang = "Held Item ";
+let idName = "heldItem";
+let nameValue = "heldItem";
+let location = document.getElementById("item")
+let data = ['None'];
+items.forEach(item => {
+    //console.log(ability.ability.name);
+    data.push(item.name);
+})
+//console.log(data);
+dropDown(labelLang, idName, nameValue, location, data);
 }
 
 function displayMoveset(moveset) {
@@ -94,7 +126,7 @@ function displayMoveset(moveset) {
         let idName = "moveNames" + i;
         let nameValue = "move" + i;
         let location = document.getElementById("moveset")
-        let data = ['Select Move'];
+        let data = ['None'];
         moveset.forEach(move => {
             //console.log(move.move.name);
             data.push(move.move.name);
@@ -120,3 +152,14 @@ function dropDown(labelLang, idName, nameValue, location, data) {
         select.appendChild(option);
     })
 }
+
+/*let pokemonBuild = {
+    sprite: document.getElementById("")
+    pokemon:
+    type:
+    item:
+    move1:
+    move2:
+    move3:
+    move4;
+}*/
