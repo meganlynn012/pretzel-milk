@@ -27,6 +27,17 @@
               </div>
         </form>
     </section>
+ 
+    <form id="pokeModal" class="modal">
+        <img id="sprite">
+        <h2 id="pokemonName"></h2>
+        <div id="types"></div>
+        <div id="ability"></div>
+        <div id="moveset"></div>
+        <button type="button">Save</button>
+        <button type="button" onclick="closeModal()">Close</button>
+
+    </form>
 
     <section id="pokeDisplay">
 
@@ -38,5 +49,6 @@
     <script src="pokemonSearch.js"></script>
     <script src="pokemonNames.js"></script>
     <script src="pokemonIndex.js" type="module"></script>
+    <script src="pokemonCustom.js"></script>
 </body>
 </html>

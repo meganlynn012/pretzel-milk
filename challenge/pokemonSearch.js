@@ -4,6 +4,7 @@ function filterFunction() {
     filter = input.value.toLowerCase();
     div = document.getElementById("pokeDropdown");
     li = div.getElementsByTagName("li");
+    
     for (i = 0; i < li.length; i++) {
       txtValue = li[i].textContent || li[i].innerText;
       if (txtValue.toLowerCase().indexOf(filter) > -1) {

@@ -3,12 +3,8 @@
     height: 15px;
 }
 #pokelistContainer {
-    list-style: none;
-    border: 1px solid lightgrey;
     width: 30%;
     text-align: center;
-    margin: 0;
-    padding: 0;
 }
 .selection li:hover {
     background-color: lightgrey;
@@ -20,4 +16,12 @@
 .listContainer {
     max-height: 500px;
     overflow: auto;
+}
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.modal {
+    display: none;
 }
