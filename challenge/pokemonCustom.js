@@ -18,8 +18,9 @@ document.getElementById("searchBtn").addEventListener("click", event => {
 })
 
 function getURL() {
+    
     let pokeName = pokeSearch.value.toLowerCase();
-
+    
     //makes sure the user entered a pokemon from the list
     if (pokeName == "") {
         alert("You need to enter a Pokemon");
@@ -33,6 +34,7 @@ function getURL() {
     let pokeurl = `https://pokeapi.co/api/v2/pokemon/${pokeName}`;
     //console.log(pokeurl);
     getPokeDetails(pokeurl);
+    pokeSearch.value = "";
 }
 
 function closeModal() {

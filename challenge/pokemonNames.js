@@ -16,7 +16,7 @@ async function getPokeNames(pokeurl) {
             .then(data => {
                 let pokemon = data.results;
                 pokeArray(pokemon);
-                showPokeNames();
+                showPokeNames(pokemon);
 
             });
     } catch (error) {
@@ -30,14 +30,13 @@ function pokeArray(pokemon) {
     pokemon.forEach(name => {
         pokemonArray.push(name.name)
     })
-    //console.log(pokemonArray);
 }
 //make a list item for each name and append it to the ul container
-function showPokeNames() {
+function showPokeNames(pokemon) {
 
     pokeList.innerHTML = "";
-    pokemonArray.forEach(item => {
-        let name = casePokemon(item); //fix the casing
+    pokemon.forEach (item => {
+        let name = casePokemon(item.name); //fix the casing
         const li = document.createElement("li");
         li.setAttribute("value", name);
         li.innerHTML = name;
