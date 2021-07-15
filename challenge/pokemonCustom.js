@@ -1,8 +1,26 @@
 let pokeModal = document.getElementById("pokeModal");
 
+//calls the function when the user hits enter
+document.querySelector(".formContainer").addEventListener("submit", event => {
+    event.preventDefault();
+    pokeList.style.display = "none"; //hides the list
+    getURL()
+})
+
+//if the user hits enter, then starts typing again, brings the list back
+pokeSearch.addEventListener("keydown", event => {
+    pokeList.style.display = "block";
+})
+
+//calls the function if the user clicks the pokeball
 document.getElementById("searchBtn").addEventListener("click", event => {
+    getURL()
+})
+
+function getURL() {
     let pokeName = pokeSearch.value.toLowerCase();
 
+    //makes sure the user entered a pokemon from the list
     if (pokeName == "") {
         alert("You need to enter a Pokemon");
         return;
@@ -10,15 +28,15 @@ document.getElementById("searchBtn").addEventListener("click", event => {
         alert("Enter a valid name");
         return;
     }
-    document.getElementById("pokeModal").style.display = "block";
 
+    pokeModal.style.display = "block";
     let pokeurl = `https://pokeapi.co/api/v2/pokemon/${pokeName}`;
     //console.log(pokeurl);
     getPokeDetails(pokeurl);
-})
+}
 
 function closeModal() {
-    document.getElementById("pokeModal").style.display = "none";
+    pokeModal.style.display = "none";
 }
 
 async function getPokeDetails(pokeurl) {
@@ -51,7 +69,7 @@ function displayName(name) {
 
 function displayType(types) {
     document.getElementById("types").innerHTML = "";
-    //console.log(types)
+    console.log(types)
     let typeNum = 0;
     types.forEach(type => {
         //console.log(type.type.name);
@@ -86,35 +104,34 @@ function displayAbilities(abilities) {
     dropDown(labelLang, idName, nameValue, location, data);
 }
 
-async function getPokeItems(){
+async function getPokeItems() {
     try {
         await fetch(`https://pokeapi.co/api/v2/item?limit=954&offset=111`)
-        .then(response => response.json())
-        .then(data => {
-            let items = data.results;
-            //console.log(items);
-            displayItems(items);
+            .then(response => response.json())
+            .then(data => {
+                let items = data.results;
+                //console.log(items);
+                displayItems(items);
 
-        })
-    }
-    catch (error) {
+            })
+    } catch (error) {
         console.log(error);
     }
 }
 
-function displayItems(items){
-document.getElementById("item").innerHTML = "";
-let labelLang = "Held Item ";
-let idName = "heldItem";
-let nameValue = "heldItem";
-let location = document.getElementById("item")
-let data = ['None'];
-items.forEach(item => {
-    //console.log(ability.ability.name);
-    data.push(item.name);
-})
-//console.log(data);
-dropDown(labelLang, idName, nameValue, location, data);
+function displayItems(items) {
+    document.getElementById("item").innerHTML = "";
+    let labelLang = "Held Item ";
+    let idName = "heldItem";
+    let nameValue = "heldItem";
+    let location = document.getElementById("item")
+    let data = ['None'];
+    items.forEach(item => {
+        //console.log(ability.ability.name);
+        data.push(item.name);
+    })
+    //console.log(data);
+    dropDown(labelLang, idName, nameValue, location, data);
 }
 
 function displayMoveset(moveset) {
@@ -123,7 +140,7 @@ function displayMoveset(moveset) {
     let i;
     for (i = 1; i < 5; i++) {
         let labelLang = "Move " + i;
-        let idName = "moveNames" + i;
+        let idName = "moveName" + i;
         let nameValue = "move" + i;
         let location = document.getElementById("moveset")
         let data = ['None'];
@@ -152,14 +169,3 @@ function dropDown(labelLang, idName, nameValue, location, data) {
         select.appendChild(option);
     })
 }
-
-/*let pokemonBuild = {
-    sprite: document.getElementById("")
-    pokemon:
-    type:
-    item:
-    move1:
-    move2:
-    move3:
-    move4;
-}*/
