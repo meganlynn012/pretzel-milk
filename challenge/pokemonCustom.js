@@ -1,4 +1,4 @@
-let pokeModal = document.getElementById("pokeModal");
+    let pokeModal = document.getElementById("pokeModal");
 
 //calls the function when the user hits enter
 document.querySelector(".formContainer").addEventListener("submit", event => {
@@ -68,16 +68,22 @@ function displayName(name) {
 }
 
 function displayType(types) {
-    document.getElementById("types").innerHTML = "";
-    console.log(types)
+    let typeDiv = document.getElementById("types");
+    typeDiv.innerHTML = "";
+    //console.log(types)
     let typeNum = 0;
     types.forEach(type => {
         //console.log(type.type.name);
+        //pokemonTypes.push(type.type.name);
         typeNum++;
         let pokeTypes = casePokemon(type.type.name);
+        const h3 = document.createElement("h3");
+        h3.innerText = "Type " + typeNum + " ";
         const p = document.createElement("p");
-        p.innerHTML = 'Type ' + typeNum + " " + pokeTypes;
-        document.getElementById("types").appendChild(p);
+        p.setAttribute("id", "type" + typeNum);
+        p.innerHTML = pokeTypes;
+        typeDiv.appendChild(h3);
+        typeDiv.appendChild(p);
     })
 }
 
