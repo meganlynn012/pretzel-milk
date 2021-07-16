@@ -16,7 +16,7 @@ function add() {
     const input = document.getElementById("addToList").value;
     //console.log(input);
 
-        //verifies the user actually typed something
+    //verifies the user actually typed something
     if (input !== "") {
         const todoObject = {
             id: Date.now(),
