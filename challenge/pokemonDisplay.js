@@ -9,7 +9,7 @@ function savePokemon() {
     let pokeName = document.getElementById("pokemonName").textContent;
     //assign a value
     let pokeIdTest = document.getElementById("pokemonName").getAttribute("data-key")
-    console.log(pokeIdTest);
+    //console.log(pokeIdTest);
 
     //Don't assign a new id if one already exists from being edited
     let pokeId;

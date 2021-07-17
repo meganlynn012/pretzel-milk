@@ -1,7 +1,7 @@
 function editPokemon(event) {
     //event.target.parentElement.parentElement.style.display = "none";
     let id = event.target.parentElement.parentElement.getAttribute("data-key");
-    console.log(id);
+    //console.log(id);
     const index = getPokeIndex(id);
     let pokeName = event.target.parentElement.parentElement.getAttribute("value").toLowerCase();
     let pokeAbility = event.target.parentElement.parentElement.querySelector(".ability").textContent.toLowerCase();
@@ -23,11 +23,11 @@ function deletePokemon(event) {
     console.log(id);
     console.log(pokemonTeam);
     console.log(Number(id));
-    const index = pokemonTeam.findIndex(item => item.id !== Number(id));
+    const index = pokemonTeam.findIndex(item => Number(item.id) !== Number(id));
     const remove = {
         deleted: true,
         ...pokemonTeam[index]
     };
-    pokemonTeam = pokemonTeam.filter(item => item.id !== Number(id));
+    pokemonTeam = pokemonTeam.filter(item => Number(item.id) !== Number(id));
     storage(pokemonTeam);
 }
