@@ -20,9 +20,9 @@ function getPokeIndex(id) {
 
 function deletePokemon(event) {
     let id = event.target.parentElement.parentElement.getAttribute("data-key");
-    console.log(id);
-    console.log(pokemonTeam);
-    console.log(Number(id));
+    //console.log(id);
+    //console.log(pokemonTeam);
+    //console.log(Number(id));
     const index = pokemonTeam.findIndex(item => Number(item.id) !== Number(id));
     const remove = {
         deleted: true,

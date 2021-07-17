@@ -19,7 +19,7 @@ function savePokemon() {
     else {
         pokeId = pokeIdTest;
     }
-    console.log(pokeId);
+    //console.log(pokeId);
     //get pokemon ability
     let pokeType1 = document.getElementById("type1").textContent;
     //console.log(pokeType1);
@@ -165,22 +165,6 @@ function displayTeam(pokemonTeam) {
             moveP.innerHTML = casePokemon(move);
             moveDiv.appendChild(moveP);
         })
-        /*let move1 = document.createElement("p");
-        let move2 = document.createElement("p");
-        let move3 = document.createElement("p");
-        let move4 = document.createElement("p");
-        move1.setAttribute("class", "move1");
-        move2.setAttribute("class", "move2");
-        move3.setAttribute("class", "move3");
-        move4.setAttribute("class", "move4");
-        move1.innerHTML = pokemon.move1;
-        move2.innerHTML = pokemon.move2;
-        move3.innerHTML = pokemon.move3;
-        move4.innerHTML = pokemon.move4;
-        moveDiv.appendChild(move1);
-        moveDiv.appendChild(move2);
-        moveDiv.appendChild(move3);
-        moveDiv.appendChild(move4);*/
 
         //add buttons
         let btnDiv = document.createElement("div");
