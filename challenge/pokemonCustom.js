@@ -192,3 +192,8 @@
             select.appendChild(option);
         })
     }
+
+    //Closes the modal when the close button is clicked.
+    function closeModal() {
+        pokeModal.style.display = "none";
+    }
