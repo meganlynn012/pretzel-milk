@@ -24,6 +24,7 @@ async function getPokeNames(pokeurl) {
     }
 }
 
+//creates an array of all the names. This is used to compare that the user actually typed in a pokemon from the array
 let pokemonArray = [];
 
 function pokeArray(pokemon) {
@@ -31,6 +32,7 @@ function pokeArray(pokemon) {
         pokemonArray.push(name.name)
     })
 }
+
 //make a list item for each name and append it to the ul container
 function showPokeNames(pokemon) {
 

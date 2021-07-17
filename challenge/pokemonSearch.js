@@ -1,3 +1,4 @@
+//filters through the list of pokemon as the user types
 function filterFunction() {
   let input, filter, li, i;
   input = document.getElementById("pokesearch");
@@ -15,7 +16,9 @@ function filterFunction() {
   }
 }
 
+//puts the name of the pokemon the user clicked into the search box
 document.getElementById("pokelistContainer").addEventListener("click", event => {
+  //resets anything the user may have typed in previously
   pokeSearch.value = '';
   let selectedId = event.target.getAttribute('value');
   //console.log(selectedId);

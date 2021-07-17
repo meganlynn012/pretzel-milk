@@ -30,18 +30,18 @@
             return;
         }
 
-        
-        //let pokeurl = pokeName;
         //console.log(pokeurl);
         getPokeDetails(pokeName);
+        //reset the search box so the user doesn't have to
         pokeSearch.value = "";
     }
 
-    function closeModal() {
+    /*function closeModal() {
         pokeModal.style.display = "none";
-    }
-
+    }*/
+    //most of these parameters are passed from the editPokemon() function
     async function getPokeDetails(pokeurl, id, pokeAbility, pokeItem, allMoves) {
+        //display the modal
         pokeModal.style.display = "block";
         //console.log(id);
         try {
@@ -52,6 +52,8 @@
                     //console.log(data.abilities);
                     //console.log(data.types);
                     //console.log(data.moves);
+
+                    //pass the correct parameters on to remember values the user already picked if editing
                     displayName(data.name, id);
                     displayType(data.types);
                     displaySprite(data.sprites, data.name);
@@ -65,13 +67,15 @@
         }
     }
 
+    //POPULATES THE DATA IN THE MODAL TO CUSTOMIZE THE POKEMON
+
     function displayName(name, id) {
         //capitalize the first letter of the name
         let pokemon = casePokemon(name);
         
         //console.log(pokemon);
         document.getElementById("pokemonName").innerHTML = pokemon;
-        //put the data key in the modal so it can be retrieved later
+        //put the data key in the modal so it can be retrieved in the savePokemon() function
         document.getElementById("pokemonName").setAttribute("data-key", id);
     }
 
@@ -110,6 +114,7 @@
         let labelLang = "Ability ";
         let idName = "abilityNames";
         let nameValue = "ability";
+        //this will check for an existing value if the pokemon is being edited. If there is one, the selected attribute will be added next to the value passed through.
         let selectValue = (id == undefined) ? "" : pokeAbility;
         let location = document.getElementById("ability")
         let data = [];
@@ -164,6 +169,7 @@
         }
     }
 
+    //Creates the drop down selections for the ability, item, and moves
     function dropDown(labelLang, idName, nameValue, location, data, selectValue) {
         let label = document.createElement("label");
         label.innerHTML = labelLang

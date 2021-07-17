@@ -1,3 +1,4 @@
+//this is the main array that will be saved to localStorage and displayed on the screen.
 let pokemonTeam = [];
 
 function savePokemon() {
@@ -20,15 +21,19 @@ function savePokemon() {
         pokeId = pokeIdTest;
     }
     //console.log(pokeId);
-    //get pokemon ability
+
+    //get pokemon types
     let pokeType1 = document.getElementById("type1").textContent;
     //console.log(pokeType1);
+    //not all pokemon have a type 2. This declares a "" value if a type 2 doesn't exist.
     let pokeType2 = "";
     let getType2 = document.getElementById('type2');
         if (getType2 !== null) {
             pokeType2 = getType2.textContent;
         }
     //console.log(pokeType2);
+
+    //get pokemon abiltiy
     let pokeAbility = document.getElementById("abilityNames").value;
     //get held item
     let pokeItem = document.getElementById("heldItem").value;
@@ -56,7 +61,7 @@ function savePokemon() {
         moveset: pokeMoves
     }
 
-    //replace the pokemon if edited
+    //replace the pokemon if edited or push to array if adding the first time
     //console.log(pokeIdTest);
 if (pokeIdTest !== 'undefined') {
     spliceTeam(pokemonBuild);
@@ -118,7 +123,7 @@ function displayTeam(pokemonTeam) {
         h2.innerHTML = pokemon.name;
         div.appendChild(h2);
 
-        //add the items
+        //add the types
         let typeP = document.createElement("p")
         typeP.setAttribute("class", "pokeTypes");
         if (pokemon.type2 !== "") {

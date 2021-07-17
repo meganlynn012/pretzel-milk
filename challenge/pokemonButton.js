@@ -1,5 +1,6 @@
 function editPokemon(event) {
-    //event.target.parentElement.parentElement.style.display = "none";
+    //get all the values to pass on to the getPokeDetails function to open the modal
+    //this will save all the values the user previously picked.
     let id = event.target.parentElement.parentElement.getAttribute("data-key");
     //console.log(id);
     const index = getPokeIndex(id);
@@ -23,6 +24,7 @@ function deletePokemon(event) {
     //console.log(id);
     //console.log(pokemonTeam);
     //console.log(Number(id));
+    //you have to put the item.id in the Number() or edited pokemon can't be deleted.
     const index = pokemonTeam.findIndex(item => Number(item.id) !== Number(id));
     const remove = {
         deleted: true,
