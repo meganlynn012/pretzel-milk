@@ -10,43 +10,47 @@
     <link rel="stylesheet" href="small.css">
 
 </head>
+
 <body>
-<main>
-    <section class="selection">
-        <h1>Pok&eacute;mon Team Builder</h1>
-        <form class="formContainer">
-            <div class="dropdown">
-                <div id="pokeDropdown" class="dropdown-content">
-                <label for="pokesearch">Pok&eacute;mon Selector</label>
-                  <input type="text" placeholder="Enter pok&eacute;mon name" id="pokesearch" onkeyup="filterFunction()">
-                  <button type="button" id="searchBtn"><img src="pokeball.png" alt="search for pokemon" class="pokeball-image"></button>
-                  <ul class="listContainer" id="pokelistContainer">
+    <main>
+        <section class="selection">
+            <h1>Pok&eacute;mon Team Builder</h1>
+            <form class="formContainer">
+                <div class="dropdown">
+                    <div id="pokeDropdown" class="dropdown-content">
+                        <label for="pokesearch">Pok&eacute;mon Selector</label>
+                        <input type="text" placeholder="Enter pok&eacute;mon name" id="pokesearch"
+                            onkeyup="filterFunction()">
+                        <button type="button" id="searchBtn"><img src="pokeball.png" alt="search for pokemon"
+                                class="pokeball-image"></button>
+                        <ul class="listContainer" id="pokelistContainer">
 
-                  </ul>
+                        </ul>
+                    </div>
                 </div>
-              </div>
+            </form>
+        </section>
+
+        <form id="pokeModal" class="modal">
+            <img id="sprite">
+            <h2 id="pokemonName"></h2>
+            <div id="types"></div>
+            <div id="ability"></div>
+            <div id="item"></div>
+            <div id="moveset"></div>
+            <button type="button" onclick="savePokemon(event)" id="saveBtn">Save</button>
+            <button type="button" onclick="closeModal()" id="closeBtn" class="buttons">Close</button>
+
         </form>
-    </section>
- 
-    <form id="pokeModal" class="modal">
-        <img id="sprite">
-        <h2 id="pokemonName"></h2>
-        <div id="types"></div>
-        <div id="ability"></div>
-        <div id="item"></div>
-        <div id="moveset"></div>
-        <button type="button" onclick="savePokemon(event)" id="saveBtn">Save</button>
-        <button type="button" onclick="closeModal()" id="closeBtn" class="buttons">Close</button>
 
-    </form>
+        <section id="pokeDisplay">
 
-    <section id="pokeDisplay">
+        </section>
 
-    </section>
-</main>
-<footer>
-    <p>&#169; 2021 | Megan Shaw | Resources obtained from Pok&eacute;API at <a src="pokeapi.co">pokeapi.co</a>.</p>
-</footer>
+    </main>
+    <footer>
+        <p>&#169; 2021 | Megan Shaw | Resources obtained from Pok&eacute;API at <a src="pokeapi.co">pokeapi.co</a>.</p>
+    </footer>
     <script src="pokemonSearch.js"></script>
     <script src="pokemonNames.js"></script>
     <script src="pokemonIndex.js" type="module"></script>
@@ -54,4 +58,5 @@
     <script src="pokemonDisplay.js"></script>
     <script src="pokemonButton.js"></script>
 </body>
+
 </html>

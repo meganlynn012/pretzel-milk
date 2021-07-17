@@ -58,6 +58,7 @@
                     displayAbilities(data.abilities, id, pokeAbility);
                     getPokeItems(id, pokeItem);
                     displayMoveset(data.moves, id, allMoves);
+            
                 })
         } catch (error) {
             console.log(error);
@@ -102,12 +103,12 @@
 
     function displayAbilities(abilities, id, pokeAbility) {
         //console.log(abilities);
-        console.log(id);
+        //console.log(id);
         document.getElementById("ability").innerHTML = "";
         let labelLang = "Ability ";
         let idName = "abilityNames";
         let nameValue = "ability";
-        let selectValue = (id == 'undefined') ? '""' : pokeAbility;
+        let selectValue = (id == undefined) ? "" : pokeAbility;
         let location = document.getElementById("ability")
         let data = [];
         abilities.forEach(ability => {
@@ -135,7 +136,7 @@
         let labelLang = "Held Item ";
         let idName = "heldItem";
         let nameValue = "heldItem";
-        let selectValue = (id == 'undefined') ? '""' : pokeItem;
+        let selectValue = (id == undefined) ? "" : pokeItem;
         let location = document.getElementById("item")
         let data = ['None'];
         items.forEach(item => {
@@ -151,14 +152,13 @@
             let labelLang = "Move " + i;
             let idName = "moveName" + i;
             let nameValue = "move" + i;
-            //let selectValue = (id == 'undefined') ? '""' : allMoves[i-1];
-            //console.log(selectValue);
+            let selectValue = (id == undefined) ? "" : allMoves[i-1];
             let location = document.getElementById("moveset")
             let data = ['None'];
             moveset.forEach(move => {
                 data.push(move.move.name);
             })
-            dropDown(labelLang, idName, nameValue, location, data);
+            dropDown(labelLang, idName, nameValue, location, data, selectValue);
         }
     }
 

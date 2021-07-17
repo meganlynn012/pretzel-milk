@@ -1,34 +1,32 @@
 let pokemonTeam = [];
 
-function savePokemon(event) {
+function savePokemon() {
     //makes the custom window go away
     pokeModal.style.display = "none";
-    //start with a blank array for the types. Not all pokemon have a type 2, so an array is necessary.
-    let pokemonTypes = [];
     //get image address
     let pokeSprite = document.getElementById("sprite").getAttribute("src");
     //get pokemon name
     let pokeName = document.getElementById("pokemonName").textContent;
-    //this is needed when editing the pokemon
-    let pokeId = document.getElementById("pokemonName").getAttribute("data-key")
-    console.log(pokeId);
-
-    /*//get the name in lowercase just for the url
-    let pokeNameL = pokeName.toLowerCase();
-    //this process adds the types to the pokemonTypes array. 
-    fetch(`https://pokeapi.co/api/v2/pokemon/${pokeNameL}`)
-        .then(response => response.json())
-        .then(data => {
-            //console.log(data.types);
-            data.types.forEach(type => {
-                pokemonTypes.push(type.type.name)
-                //console.log(pokemonTypes);
-            })
-        })*/
-
-    //console.log(pokemonTypes);
+    //assign a value
+    let pokeIdTest = document.getElementById("pokemonName").getAttribute("data-key")
+    console.log(pokeIdTest);
+    let pokeId;
+    if (pokeIdTest == 'undefined'){
+        pokeId = Date.now();
+    }
+    else {
+        pokeId = pokeIdTest;
+    }
 
     //get pokemon ability
+    let pokeType1 = document.getElementById("type1").textContent;
+    console.log(pokeType1);
+    let pokeType2 = "";
+    let getType2 = document.getElementById('type2');
+        if (getType2 !== null) {
+            pokeType2 = getType2.textContent;
+        }
+    console.log(pokeType2);
     let pokeAbility = document.getElementById("abilityNames").value;
     //get held item
     let pokeItem = document.getElementById("heldItem").value;
@@ -37,12 +35,15 @@ function savePokemon(event) {
     let pokeMove2 = document.getElementById("moveName2").value;
     let pokeMove3 = document.getElementById("moveName3").value;
     let pokeMove4 = document.getElementById("moveName4").value;
+        //assign all the values to an object
+    //assign all the values to an object
 
     let pokemonBuild = {
-        id: Date.now(),
         sprite: pokeSprite,
         name: pokeName,
-        type: pokemonTypes,
+        id: pokeId,
+        type1: pokeType1,
+        type2: pokeType2,
         ability: pokeAbility,
         heldItem: pokeItem,
         move1: pokeMove1,
@@ -50,18 +51,24 @@ function savePokemon(event) {
         move3: pokeMove3,
         move4: pokeMove4
     }
-    //assign all the values to an object
 
-    //if the pokemon is being edited, don't replace the id. Splice the old one out of the array and replace it with this one.
-    if (pokeId !== 'undefined') {
+    console.log(pokeIdTest);
+if (pokeIdTest !== 'undefined') {
+    spliceTeam(pokemonBuild);
+}
+else{
+    pokemonTeam.push(pokemonBuild);
+    storage(pokemonTeam);
+}
+}
 
-        spliceTeam(pokemonBuild);
-
-    } else {
-
-        pokemonTeam.push(pokemonBuild);
-        storage(pokemonTeam);
-    }
+function spliceTeam(pokemonBuild) {
+    let index = getPokeIndex(pokemonBuild.id);
+    console.log(pokemonBuild.id);
+    console.log(index);
+    pokemonTeam.splice(index, 1, pokemonBuild)
+    console.log(pokemonTeam);
+    storage(pokemonTeam);
 }
 
 function storage(pokemonTeam) {
@@ -126,7 +133,7 @@ function displayTeam(pokemonTeam) {
         let i;
         for (i = 1; i < 5; i++) {
             let move[i] = document.createElement("p")
-            move[i].setAttribute("class", move[i])
+            move[i].setAttribute("class", "move" + i)
             move[i].innerHTML = pokemon.move[i];
             moveDiv.appendChild(move[i]);
         
@@ -164,7 +171,6 @@ function displayTeam(pokemonTeam) {
         delBtn.setAttribute("id", "delBtn");
         delBtn.setAttribute("class", "delete");
         delBtn.setAttribute("onclick", "deletePokemon(event)")
-        //delBtn.setAttribute("onclick", "deleteEditPokemon(event)")
         delBtn.innerHTML = "Delete";
         btnDiv.appendChild(delBtn);
     })
