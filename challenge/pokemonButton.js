@@ -4,12 +4,12 @@ function editPokemon(event) {
     console.log(id);
     const index = getPokeIndex(id);
     let pokeName = event.target.parentElement.parentElement.getAttribute("value").toLowerCase();
-    let pokeAbility = event.target.parentElement.parentElement.querySelector(".ability").textContent;
-    let pokeItem = event.target.parentElement.parentElement.querySelector(".pokeItem").textContent;
-    let pokeMove1 = event.target.parentElement.parentElement.querySelector(".move1").textContent;
-    let pokeMove2 = event.target.parentElement.parentElement.querySelector(".move2").textContent;
-    let pokeMove3 = event.target.parentElement.parentElement.querySelector(".move3").textContent;
-    let pokeMove4 = event.target.parentElement.parentElement.querySelector(".move4").textContent;
+    let pokeAbility = event.target.parentElement.parentElement.querySelector(".ability").textContent.toLowerCase();
+    let pokeItem = event.target.parentElement.parentElement.querySelector(".pokeItem").textContent.toLowerCase();
+    let pokeMove1 = event.target.parentElement.parentElement.querySelector(".move1").textContent.toLowerCase();
+    let pokeMove2 = event.target.parentElement.parentElement.querySelector(".move2").textContent.toLowerCase();
+    let pokeMove3 = event.target.parentElement.parentElement.querySelector(".move3").textContent.toLowerCase();
+    let pokeMove4 = event.target.parentElement.parentElement.querySelector(".move4").textContent.toLowerCase();
     let allMoves = [pokeMove1, pokeMove2, pokeMove3, pokeMove4]
     getPokeDetails(pokeName, id, pokeAbility, pokeItem, allMoves);
 }

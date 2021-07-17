@@ -43,7 +43,7 @@
 
     async function getPokeDetails(pokeurl, id, pokeAbility, pokeItem, allMoves) {
         pokeModal.style.display = "block";
-        //console.log(id);
+        console.log(id);
         try {
             await fetch(`https://pokeapi.co/api/v2/pokemon/${pokeurl}`)
                 .then(response => response.json())
@@ -71,6 +71,7 @@
         
         //console.log(pokemon);
         document.getElementById("pokemonName").innerHTML = pokemon;
+        //put the data key in the modal so it can be retrieved later
         document.getElementById("pokemonName").setAttribute("data-key", id);
     }
 
@@ -103,7 +104,8 @@
 
     function displayAbilities(abilities, id, pokeAbility) {
         //console.log(abilities);
-        //console.log(id);
+        console.log(id);
+        console.log(pokeAbility);
         document.getElementById("ability").innerHTML = "";
         let labelLang = "Ability ";
         let idName = "abilityNames";

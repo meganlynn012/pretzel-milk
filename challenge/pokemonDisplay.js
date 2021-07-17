@@ -10,6 +10,8 @@ function savePokemon() {
     //assign a value
     let pokeIdTest = document.getElementById("pokemonName").getAttribute("data-key")
     console.log(pokeIdTest);
+
+    //Don't assign a new id if one already exists from being edited
     let pokeId;
     if (pokeIdTest == 'undefined'){
         pokeId = Date.now();
@@ -17,27 +19,32 @@ function savePokemon() {
     else {
         pokeId = pokeIdTest;
     }
-
+    console.log(pokeId);
     //get pokemon ability
     let pokeType1 = document.getElementById("type1").textContent;
-    console.log(pokeType1);
+    //console.log(pokeType1);
     let pokeType2 = "";
     let getType2 = document.getElementById('type2');
         if (getType2 !== null) {
             pokeType2 = getType2.textContent;
         }
-    console.log(pokeType2);
+    //console.log(pokeType2);
     let pokeAbility = document.getElementById("abilityNames").value;
     //get held item
     let pokeItem = document.getElementById("heldItem").value;
     //get the chosen moves
+    let pokeMoves = [];
     let pokeMove1 = document.getElementById("moveName1").value;
+    pokeMoves.push(pokeMove1);
     let pokeMove2 = document.getElementById("moveName2").value;
+    pokeMoves.push(pokeMove2);
     let pokeMove3 = document.getElementById("moveName3").value;
+    pokeMoves.push(pokeMove3);
     let pokeMove4 = document.getElementById("moveName4").value;
-        //assign all the values to an object
-    //assign all the values to an object
+    pokeMoves.push(pokeMove4);
+    //console.log(pokeMoves);
 
+    //assign all the values to an object
     let pokemonBuild = {
         sprite: pokeSprite,
         name: pokeName,
@@ -46,13 +53,11 @@ function savePokemon() {
         type2: pokeType2,
         ability: pokeAbility,
         heldItem: pokeItem,
-        move1: pokeMove1,
-        move2: pokeMove2,
-        move3: pokeMove3,
-        move4: pokeMove4
+        moveset: pokeMoves
     }
 
-    console.log(pokeIdTest);
+    //replace the pokemon if edited
+    //console.log(pokeIdTest);
 if (pokeIdTest !== 'undefined') {
     spliceTeam(pokemonBuild);
 }
@@ -64,10 +69,10 @@ else{
 
 function spliceTeam(pokemonBuild) {
     let index = getPokeIndex(pokemonBuild.id);
-    console.log(pokemonBuild.id);
-    console.log(index);
+    //console.log(pokemonBuild.id);
+    //console.log(index);
     pokemonTeam.splice(index, 1, pokemonBuild)
-    console.log(pokemonTeam);
+    //console.log(pokemonTeam);
     storage(pokemonTeam);
 }
 
@@ -113,32 +118,54 @@ function displayTeam(pokemonTeam) {
         h2.innerHTML = pokemon.name;
         div.appendChild(h2);
 
+        //add the items
+        let typeP = document.createElement("p")
+        typeP.setAttribute("class", "pokeTypes");
+        if (pokemon.type2 !== "") {
+        typeP.innerHTML = "Type: " + pokemon.type1 + "/" + pokemon.type2;
+        }
+        else {
+            typeP.innerHTML = "Type: " + pokemon.type1;
+        }
+        div.appendChild(typeP);
+
         //add ability
-        let pAbility = document.createElement("p");
-        pAbility.setAttribute("class", "ability");
-        pAbility.innerHTML = pokemon.ability;
-        div.appendChild(pAbility);
+        let abilityH = document.createElement("p");
+        abilityH.setAttribute("class", "label")
+        abilityH.innerText = "Ability: ";
+        div.appendChild(abilityH);
+        let abilityP = document.createElement("p");
+        abilityP.setAttribute("class", "ability");
+        abilityP.innerHTML = casePokemon(pokemon.ability);
+        div.appendChild(abilityP);
 
         //add item
-        let pItem = document.createElement("p");
-        pItem.setAttribute("class", "pokeItem");
-        pItem.innerHTML = pokemon.heldItem;
-        div.appendChild(pItem);
+        let itemH = document.createElement("p");
+        itemH.setAttribute("class", "label")
+        itemH.innerText = "Held Item: ";
+        div.appendChild(itemH);
+        let itemP = document.createElement("p");
+        itemP.setAttribute("class", "pokeItem");
+        itemP.innerHTML = casePokemon(pokemon.heldItem);
+        div.appendChild(itemP);
 
         //add moves
         let moveDiv = document.createElement("div");
         moveDiv.setAttribute("class", "moveset");
+        moveH = document.createElement("p");
+        moveH.setAttribute("class", "moveLabel label");
+        moveH.innerHTML = "Moveset: ";
+        moveDiv.appendChild(moveH);
         div.appendChild(moveDiv);
-        /*let move = [1, 2, 3, 4]
-        let i;
-        for (i = 1; i < 5; i++) {
-            let move[i] = document.createElement("p")
-            move[i].setAttribute("class", "move" + i)
-            move[i].innerHTML = pokemon.move[i];
-            moveDiv.appendChild(move[i]);
-        
-        }*/
-        let move1 = document.createElement("p");
+        let moveNum = 0;
+        pokemon.moveset.forEach(move => {
+            moveNum++;
+            let moveP = document.createElement("p");
+            moveP.setAttribute("class", "move" + moveNum)
+            moveP.innerHTML = casePokemon(move);
+            moveDiv.appendChild(moveP);
+        })
+        /*let move1 = document.createElement("p");
         let move2 = document.createElement("p");
         let move3 = document.createElement("p");
         let move4 = document.createElement("p");
@@ -153,7 +180,7 @@ function displayTeam(pokemonTeam) {
         moveDiv.appendChild(move1);
         moveDiv.appendChild(move2);
         moveDiv.appendChild(move3);
-        moveDiv.appendChild(move4);
+        moveDiv.appendChild(move4);*/
 
         //add buttons
         let btnDiv = document.createElement("div");
