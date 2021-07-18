@@ -127,17 +127,17 @@ function displayTeam(pokemonTeam) {
         let typeP = document.createElement("p")
         typeP.setAttribute("class", "pokeTypes");
         if (pokemon.type2 !== "") {
-        typeP.innerHTML = "Type: " + pokemon.type1 + "/" + pokemon.type2;
+        typeP.innerHTML = "<strong>Type: </strong> <br>" + pokemon.type1 + "/" + pokemon.type2;
         }
         else {
-            typeP.innerHTML = "Type: " + pokemon.type1;
+            typeP.innerHTML = "<strong>Type: </strong> <br>" + pokemon.type1;
         }
         div.appendChild(typeP);
 
         //add ability
         let abilityH = document.createElement("p");
         abilityH.setAttribute("class", "label")
-        abilityH.innerText = "Ability: ";
+        abilityH.innerHTML = "<strong>Ability: </strong>";
         div.appendChild(abilityH);
         let abilityP = document.createElement("p");
         abilityP.setAttribute("class", "ability");
@@ -147,7 +147,7 @@ function displayTeam(pokemonTeam) {
         //add item
         let itemH = document.createElement("p");
         itemH.setAttribute("class", "label")
-        itemH.innerText = "Held Item: ";
+        itemH.innerHTML = "<strong>Held Item: </strong>";
         div.appendChild(itemH);
         let itemP = document.createElement("p");
         itemP.setAttribute("class", "pokeItem");
@@ -159,7 +159,7 @@ function displayTeam(pokemonTeam) {
         moveDiv.setAttribute("class", "moveset");
         moveH = document.createElement("p");
         moveH.setAttribute("class", "moveLabel label");
-        moveH.innerHTML = "Moveset: ";
+        moveH.innerHTML = "<strong>Moveset: </strong>";
         moveDiv.appendChild(moveH);
         div.appendChild(moveDiv);
         let moveNum = 0;
@@ -173,6 +173,7 @@ function displayTeam(pokemonTeam) {
 
         //add buttons
         let btnDiv = document.createElement("div");
+        btnDiv.setAttribute("class", "displayBtn")
         div.appendChild(btnDiv);
         let editBtn = document.createElement("button");
         editBtn.setAttribute("type", "button");
