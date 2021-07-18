@@ -12,20 +12,24 @@
 </head>
 
 <body>
+    <div id="page-container">
     <main>
         <section class="selection">
-            <h1>Pok&eacute;mon Team Builder</h1>
+            <h1 class="title">Pok&eacute;mon Team Builder</h1>
             <form class="formContainer">
                 <div class="dropdown">
                     <div id="pokeDropdown" class="dropdown-content">
+
                         <label for="pokesearch">Pok&eacute;mon Selector</label>
                         <input type="text" placeholder="Enter pok&eacute;mon name" id="pokesearch"
                             onkeyup="filterFunction()">
-                        <button type="button" id="searchBtn"><img src="pokeball.png" alt="search for pokemon"
-                                class="pokeball-image"></button>
-                        <ul class="listContainer" id="pokelistContainer">
+                            <ul class="listContainer" id="pokelistContainer">
 
-                        </ul>
+                            </ul>
+                        <button type="button" id="searchBtn"><div class="button-design"><img src="pokeball.png" alt="search for pokemon"
+                                class="pokeball-image">Customize</div></button>
+
+
                     </div>
                 </div>
             </form>
@@ -35,15 +39,18 @@
             <img id="sprite">
             <h2 id="pokemonName"></h2>
             <div id="types"></div>
-            <div id="ability"></div>
+            <h3>Ability</h3>
+            <div id="ability">
+            </div>
+            <h3>Held Item</h3>
             <div id="item"></div>
+            <h3>Moveset</h3>
             <div id="moveset"></div>
-            <button type="button" onclick="savePokemon(event)" id="saveBtn">Save</button>
-            <button type="button" onclick="closeModal()" id="closeBtn" class="buttons">Close</button>
-
+            <button type="button" onclick="savePokemon(event)" id="saveBtn" class="buttons">Save</button>
+            <button type="button" onclick="closeModal()" id="closeBtn">X</button>
         </form>
 
-        <section id="pokeDisplay">
+        <section id="pokeDisplay" class="display">
 
         </section>
 
@@ -51,6 +58,7 @@
     <footer>
         <p>&#169; 2021 | Megan Shaw | Resources obtained from Pok&eacute;API at <a src="pokeapi.co">pokeapi.co</a>.</p>
     </footer>
+</div>
     <script src="pokemonSearch.js"></script>
     <script src="pokemonNames.js"></script>
     <script src="pokemonCustom.js"></script>

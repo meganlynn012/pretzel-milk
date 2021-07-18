@@ -36,13 +36,10 @@
         pokeSearch.value = "";
     }
 
-    /*function closeModal() {
-        pokeModal.style.display = "none";
-    }*/
     //most of these parameters are passed from the editPokemon() function
     async function getPokeDetails(pokeurl, id, pokeAbility, pokeItem, allMoves) {
         //display the modal
-        pokeModal.style.display = "block";
+        pokeModal.style.display = "flex";
         //console.log(id);
         try {
             await fetch(`https://pokeapi.co/api/v2/pokemon/${pokeurl}`)
@@ -172,7 +169,7 @@
     //Creates the drop down selections for the ability, item, and moves
     function dropDown(labelLang, idName, nameValue, location, data, selectValue) {
         let label = document.createElement("label");
-        label.innerHTML = labelLang
+        //label.innerHTML = labelLang
         let select = document.createElement("select")
         select.setAttribute("id", idName);
         select.setAttribute("name", nameValue);

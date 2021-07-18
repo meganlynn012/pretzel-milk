@@ -1,27 +1,178 @@
-.pokeball-image {
-    width: 15px;
-    height: 15px;
+/*colors
+dark grey #0B090A
+red #E5383B
+grey #D3D3D3
+light grey #F5F3F4
+white #FFFFFF
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Hind:wght@400;700&family=Lato:wght@300&family=Press+Start+2P&display=swap');
+
+/*Assign the fonts*/
+body {
+    font-family: 'Hind', Arial, sans-serif;
+    margin: 0 auto;
 }
-#pokelistContainer {
-    width: 30%;
+h1 {
+    font-family: 'Press Start 2P', 'Courier New', monospace;
+}
+h2, h3 {
+    font-family: 'Hind', Arial, sans-serif;
+    margin: 0;
+}
+label {
+    font-weight: 700;
+    font-size: 1.25em;
+}
+
+/*Pokemon Selector Style*/
+
+.title {
+    max-width: 100%;
     text-align: center;
 }
-.selection li:hover {
-    background-color: lightgrey;
-    box-shadow: 2px 2px 5px darkgrey;
+form {
+    margin: 0 auto;
 }
-.show {
-    display: block;
+
+.dropdown-content{
+    display: flex;
+    flex-direction: column;
+    margin: 0 1em;
+}
+.dropdown-content input {
+    padding: 1em;
+}
+.dropdown-content label {
+    margin: 2em 0 .5em 0;
+}
+.dropdown-content button {
+    margin: 1em auto 6em auto;
+    max-width: 25%;
+    background-color: white;
+    border: none;
+
+}
+/*pokeball button style*/
+.button-design {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.pokeball-image {
+    width: 50px;
+    height: 50px;
+}
+
+/*pokemon name list styling*/
+#pokelistContainer {
+    text-align: center;
+    max-height: 250px;
+}
+.selection li:hover {
+    background-color: #F5F3F4;
+    box-shadow: 2px 2px 5px #D3D3D3
 }
 .listContainer {
-    max-height: 500px;
+    background-color: white;
     overflow: auto;
 }
+/*gets rid of basic list styling*/
 ul {
     list-style: none;
     margin: 0;
     padding: 0;
 }
+
+/*pokemon customize screen/modal*/
 .modal {
+    position: sticky;
+    z-index: 1;
+    top: 0;
     display: none;
+    background-color: white;
+    border: 1px solid #D3D3D3;
+    border-radius: 15px;
+    margin: -3em 1em 3em 1em;
+    box-shadow: 2px 2px 5px #D3D3D3;
+    padding: 1em;
+    flex-direction: column;
+}
+#type1, #type2 {
+    margin: 0 0 1em 0;
+}
+.modal select {
+    width: 100%;
+    padding: .5em;
+    margin: .75em 0;
+}
+#moveset {
+    display: flex;
+    flex-direction: column;
+}
+#pokemonName {
+    text-align: center;
+    margin-bottom: 1em;
+    font-size: 2em;
+}
+/*put the sprite at the top corner of the modal*/
+#sprite {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+/*the save and close buttons*/
+#closeBtn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: none;
+    background-color: transparent;
+    color: #E5383B;
+    font-size: 2em;
+    font-family: "Lato", sans-serif;
+    width: 2em;
+    height: 2em;
+    cursor: pointer;
+}
+#closeBtn:hover {
+    text-shadow: 1px 1px 2px #D3D3D3;
+}
+#saveBtn {
+    width: 75%;
+    margin: 0 auto;
+}
+
+/*button styling*/
+.buttons {
+    padding: .5em;
+    font-size: 1.25em;
+    background-color: #E5383B;
+    color: #0B090A;
+    border: 1px solid #0B090A;
+    box-shadow: 2px 2px 2px #D3D3D3;
+    cursor: pointer;
+}
+.buttons:hover {
+    box-shadow: 2px 2px 5px #0B090A;
+}
+
+
+/*pokemon display styling*/
+.display{
+    width: 100%;
+    margin-bottom: 6em;
+}
+
+/*footer styling*/
+#page-container {
+    position: relative;
+    min-height: 100vh;
+}
+footer {
+    text-align: center;
+    background-color: #E5383B;
+    border: 2px solid #0B090A;
+    font-size: 1.1em;
+    width: 100%;
 }

@@ -173,19 +173,18 @@ function displayTeam(pokemonTeam) {
 
         //add buttons
         let btnDiv = document.createElement("div");
-        btnDiv.setAttribute("class", "buttons");
         div.appendChild(btnDiv);
         let editBtn = document.createElement("button");
         editBtn.setAttribute("type", "button");
         editBtn.setAttribute("id", "editBtn");
-        editBtn.setAttribute("class", "edit");
+        editBtn.setAttribute("class", "buttons");
         editBtn.setAttribute("onclick", "editPokemon(event)")
         editBtn.innerHTML = "Edit";
         btnDiv.appendChild(editBtn);
         let delBtn = document.createElement("button");
         delBtn.setAttribute("type", "button");
         delBtn.setAttribute("id", "delBtn");
-        delBtn.setAttribute("class", "delete");
+        delBtn.setAttribute("class", "buttons");
         delBtn.setAttribute("onclick", "deletePokemon(event)")
         delBtn.innerHTML = "Delete";
         btnDiv.appendChild(delBtn);
