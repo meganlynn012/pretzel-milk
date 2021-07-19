@@ -1,4 +1,5 @@
 function editPokemon(event) {
+    document.getElementById("saveBtn").innerHTML = "Save Changes"; //updates the button text in the modal
     //get all the values to pass on to the getPokeDetails function to open the modal
     //this will save all the values the user previously picked.
     let id = event.target.parentElement.parentElement.getAttribute("data-key");

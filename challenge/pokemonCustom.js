@@ -4,6 +4,7 @@
     document.querySelector(".formContainer").addEventListener("submit", event => {
         event.preventDefault();
         pokeList.style.display = "none"; //hides the list
+        document.getElementById("saveBtn").innerHTML = "Add to Pokemon Team"; //creates/updates the button text in the modal
         getURL()
     })
 
@@ -14,6 +15,7 @@
 
     //calls the function if the user clicks the pokeball
     document.getElementById("searchBtn").addEventListener("click", event => {
+        document.getElementById("saveBtn").innerHTML = "Add to Pokemon Team";
         getURL()
     })
 
@@ -175,6 +177,7 @@
         select.setAttribute("name", nameValue);
         location.appendChild(label);
         label.appendChild(select);
+        data.sort();
         data.forEach(item => {
             let option = document.createElement("option");
             //when editing, this will check what the user previously selected and set it as the default
