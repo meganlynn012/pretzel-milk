@@ -85,6 +85,7 @@ form {
     overflow: auto;
     text-align: center;
     height: 80vh;
+    display: none;
 }
 .listContainer:active {
     border: 2px solid #D3D3D3;

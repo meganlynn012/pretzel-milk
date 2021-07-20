@@ -22,7 +22,6 @@
         grid-row: 1 / 2;
     }
     .listContainer {
-        display: none;
         grid-column: 2 / 3;
     }
 
