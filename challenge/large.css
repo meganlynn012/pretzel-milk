@@ -1,0 +1,50 @@
+@media only screen and (min-width: 1100px) {
+
+    /*Selector Style*/
+
+    .dropdown-content {
+        display: grid;
+        grid-template-columns: 20% auto 15%;
+        height: 10%;
+        margin: 3em auto 6em auto;
+        align-items: end; 
+    }
+    .dropdown-content label {
+        text-align: center;
+        margin: 0;
+    }
+    .dropdown-content input {
+        height: 25px;
+    }
+    .dropdown button {
+        margin: -10px 2em;
+        grid-column: 3 /4;
+        grid-row: 1 / 2;
+    }
+    .listContainer {
+        display: none;
+        grid-column: 2 / 3;
+    }
+
+    /*Pokemon customize screen/modal*/
+
+    .modal {
+        width: 65%;
+        margin: -3em auto 3em auto;
+    }
+    .title-wrap {
+        font-size: 1.5em;
+    }
+    .title-wrap img {
+        max-width: 152px;
+    }
+
+    /*Team Display Style*/
+
+    .display{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+
+}

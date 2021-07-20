@@ -13,6 +13,7 @@ body {
     font-family: 'Hind', Arial, sans-serif;
     margin: 0 auto;
     font-size: 1.25em;
+    overflow-x: hidden;
 }
 h1 {
     font-family: 'Press Start 2P', 'Courier New', monospace;
@@ -64,9 +65,14 @@ form {
 .pokeball-image {
     width: 50px;
     height: 50px;
+    box-shadow: 0px 2px 5px #0B090A;
+    border-radius: 50%;
 }
 #searchBtn {
     font-size: 1em;
+}
+#searchBtn:hover {
+    text-shadow: 0px 2px 5px #D3D3D3;
 }
 /*pokemon name list styling*/
 
@@ -78,7 +84,7 @@ form {
     background-color: white;
     overflow: auto;
     text-align: center;
-    max-height: 250px;
+    height: 80vh;
 }
 .listContainer:active {
     border: 2px solid #D3D3D3;
@@ -105,6 +111,8 @@ ul {
     box-shadow: 2px 2px 5px #D3D3D3;
     padding: 1em;
     flex-direction: column;
+    height: 90vh;
+    overflow: auto;
 }
 #type1, #type2 {
     margin: 0 0 1em 0;
@@ -119,17 +127,21 @@ ul {
     display: flex;
     flex-direction: column;
 }
-#pokemonName {
+/*put the sprite at the top corner of the modal and keep the text next to it*/
+
+.title-wrap {
     text-align: center;
-    margin-bottom: 1em;
-    font-size: 2em;
+    display: flex;
+    font-size: 4vw;
 }
-/*put the sprite at the top corner of the modal*/
-#sprite {
-    position: absolute;
-    left: 0;
-    top: 0;
+.title-wrap h2{
+    margin: 1em auto;
 }
+.title-wrap img {
+    object-fit: contain;
+}
+
+
 /*the save and close buttons*/
 #closeBtn {
     position: absolute;
@@ -143,22 +155,23 @@ ul {
     width: 2em;
     height: 2em;
     cursor: pointer;
+    text-shadow: 1px 1px 2px #858585;
 }
 #closeBtn:hover {
-    text-shadow: 1px 1px 2px #D3D3D3;
+    text-shadow: 1px 1px 2px #0B090A;
 }
 
 /*button styling*/
 .buttons {
-    padding: .5em;
+    padding: .25em;
     font-size: 1.25em;
     background-color: #E5383B;
-    color: #0B090A;
-    border: 1px solid #0B090A;
-    box-shadow: 2px 2px 2px #D3D3D3;
+    color: white;
+    border: 2px solid #0B090A;
+    box-shadow: 2px 2px 2px #858585;
     cursor: pointer;
     width: 60%;
-    margin: 0 auto;
+    margin: .5em auto;
 }
 .buttons:hover {
     box-shadow: 2px 2px 5px #0B090A;
@@ -182,7 +195,7 @@ ul {
 }
 .pokeDisplay img {
     position: absolute;
-    top: 0;
+    top: 10px;
     left: 0;
 }
 .pokeDisplay h2 {
@@ -220,7 +233,7 @@ footer {
     bottom: 0;
     text-align: center;
     background-color: #E5383B;
-    border: 2px solid #0B090A;
+    border-top: 2px solid #0B090A;
     font-size: 1.1em;
-    width: 100%;
+    width: 100vw;
 }

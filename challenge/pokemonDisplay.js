@@ -3,6 +3,10 @@ let pokemonTeam = [];
 
 function savePokemon() {
     //makes the custom window go away
+    const scrollY = document.body.style.top;
+    document.body.style.position = '';
+    document.body.style.top = '';
+    window.scrollTo(0, parseInt(scrollY || '0') * -1);
     pokeModal.style.display = "none";
     //get image address
     let pokeSprite = document.getElementById("sprite").getAttribute("src");
@@ -111,7 +115,7 @@ function displayTeam(pokemonTeam) {
         div.setAttribute("id", "pokemon" + teamNum);
         div.setAttribute("class", "pokeDisplay");
         pokeDisplay.appendChild(div);
-
+        
         //add the image
         let img = document.createElement("img");
         img.setAttribute("src", pokemon.sprite);

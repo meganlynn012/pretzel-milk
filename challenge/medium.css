@@ -1,0 +1,13 @@
+@media only screen and (min-width: 675px) {
+
+.display {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.pokeDisplay {
+    border: 2px solid #D3D3D3;
+    box-shadow: 1px 2px 2px #858585;
+    margin-bottom: 1em;
+}
+
+}
