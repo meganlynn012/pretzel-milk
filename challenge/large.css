@@ -8,6 +8,7 @@
         height: 10%;
         margin: 3em auto 6em auto;
         align-items: end; 
+        justify-items: center;
     }
     .dropdown-content label {
         text-align: center;
@@ -15,21 +16,26 @@
     }
     .dropdown-content input {
         height: 25px;
+        width: 100%;
     }
     .dropdown button {
-        margin: -10px 2em;
-        grid-column: 3 /4;
+        grid-column: 3 / 4;
         grid-row: 1 / 2;
+        margin: 0;
     }
     .openListContainer {
         grid-column: 2 / 3;
+        width: 100%;
     }
 
     /*Pokemon customize screen/modal*/
 
     .openModal {
-        width: 65%;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        max-width: 65%;
         margin: -3em auto 3em auto;
+        height: 100vh;
     }
     .modal {
         display: none;
@@ -41,9 +47,12 @@
     .title-wrap img {
         max-width: 152px;
     }
-
-
-
+    .display-group {
+        grid-column: 1 / 4;
+    }
+    .modalButtons {
+        grid-column: 1 / 4;
+    }
 
     /*Team Display Style*/
 

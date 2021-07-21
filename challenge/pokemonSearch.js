@@ -28,3 +28,4 @@ document.getElementById("pokelistContainer").addEventListener("click", event => 
 function setInput(id) {
   pokeSearch.value = id;
 }
+
