@@ -97,3 +97,7 @@ code {
     background-color: #E4B1AB;
     padding: 10px;
 }
+
+video {
+    width: 60%;
+}
