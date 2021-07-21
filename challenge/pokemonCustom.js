@@ -3,14 +3,14 @@
     //calls the function when the user hits enter
     document.querySelector(".formContainer").addEventListener("submit", event => {
         event.preventDefault();
-        pokeList.style.display = "none"; //hides the list
+        pokeList.classList.remove("openListContainer"); //hides the list
         document.getElementById("saveBtn").innerHTML = "Add to Pokemon Team"; //creates/updates the button text in the modal
         getURL()
     })
 
     //if the user hits enter, then starts typing again, brings the list back
     pokeSearch.addEventListener("keydown", event => {
-        pokeList.style.display = "block";
+        pokeList.classList.add("openListContainer");
     })
 
     //calls the function if the user clicks the pokeball
@@ -39,9 +39,9 @@
     }
 
     //most of these parameters are passed from the editPokemon() function
-    async function getPokeDetails(pokeurl, id, pokeAbility, pokeItem, allMoves) {
+    async function getPokeDetails(pokeurl, id, pokeAbility, pokeNature, pokeItem, allMoves) {
         //display the modal
-        pokeModal.style.display = "flex";
+        pokeModal.classList.toggle("modal");
         //console.log(id);
         try {
             await fetch(`https://pokeapi.co/api/v2/pokemon/${pokeurl}`)
@@ -57,6 +57,7 @@
                     displayType(data.types);
                     displaySprite(data.sprites, data.name);
                     displayAbilities(data.abilities, id, pokeAbility);
+                    getPokeNatures(id, pokeNature);
                     getPokeItems(id, pokeItem);
                     displayMoveset(data.moves, id, allMoves);
             
@@ -137,6 +138,33 @@
         }
     }
 
+    async function getPokeNatures(id, pokeNature){
+        try {
+            await fetch(`https://pokeapi.co/api/v2/nature?limit=25`)
+                .then(response => response.json())
+                .then(data => {
+                    let natures = data.results;
+                    displayNatures(natures, id, pokeNature);
+
+                })
+        } catch (error) {
+            console.log(error);
+        }
+    }
+    function displayNatures(natures, id, pokeNature) {
+        document.getElementById("nature").innerHTML = "";
+        let labelLang = "Nature ";
+        let idName = "pokeNature";
+        let nameValue = "pokeNature";
+        let selectValue = (id == undefined) ? "" : pokeNature;
+        let location = document.getElementById("nature")
+        let data = [];
+        natures.forEach(nature => {
+            data.push(nature.name);
+        })
+        dropDown(labelLang, idName, nameValue, location, data, selectValue);
+    }
+
     function displayItems(items, id, pokeItem) {
         document.getElementById("item").innerHTML = "";
         let labelLang = "Held Item ";
@@ -195,5 +223,5 @@
 
     //Closes the modal when the close button is clicked.
     function closeModal() {
-        pokeModal.style.display = "none";
+        pokeModal.classList.toggle("modal");
     }

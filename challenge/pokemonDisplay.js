@@ -7,7 +7,7 @@ function savePokemon() {
     document.body.style.position = '';
     document.body.style.top = '';
     window.scrollTo(0, parseInt(scrollY || '0') * -1);
-    pokeModal.style.display = "none";
+    pokeModal.classList.toggle("modal");
     //get image address
     let pokeSprite = document.getElementById("sprite").getAttribute("src");
     //get pokemon name
@@ -39,6 +39,8 @@ function savePokemon() {
 
     //get pokemon abiltiy
     let pokeAbility = document.getElementById("abilityNames").value;
+    //get pokemon nature
+    let pokeNature = document.getElementById("pokeNature").value;
     //get held item
     let pokeItem = document.getElementById("heldItem").value;
     //get the chosen moves
@@ -61,6 +63,7 @@ function savePokemon() {
         type1: pokeType1,
         type2: pokeType2,
         ability: pokeAbility,
+        nature: pokeNature,
         heldItem: pokeItem,
         moveset: pokeMoves
     }
@@ -147,6 +150,16 @@ function displayTeam(pokemonTeam) {
         abilityP.setAttribute("class", "ability");
         abilityP.innerHTML = casePokemon(pokemon.ability);
         div.appendChild(abilityP);
+
+        //add nature
+        let natureH = document.createElement("p");
+        natureH.setAttribute("class", "label")
+        natureH.innerHTML = "<strong>Nature: </strong>";
+        div.appendChild(natureH);
+        let natureP = document.createElement("p");
+        natureP.setAttribute("class", "nature");
+        natureP.innerHTML = casePokemon(pokemon.nature);
+        div.appendChild(natureP);
 
         //add item
         let itemH = document.createElement("p");

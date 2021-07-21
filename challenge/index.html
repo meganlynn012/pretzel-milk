@@ -38,20 +38,35 @@
             </form>
         </section>
 
-        <form id="pokeModal" class="modal">
+        <form id="pokeModal" class="openModal modal">
             <div class="title-wrap">
             <img id="sprite">
             <h2 id="pokemonName"></h2>
             </div>
             <div id="types"></div>
-            <h3>Ability</h3>
-            <div id="ability">
+            <div class="display-group">
+                <h3>Ability</h3>
+                <div id="ability">
+                </div>
             </div>
-            <h3>Held Item</h3>
-            <div id="item"></div>
+            <div class="display-group">
+                <h3>Nature</h3>
+                <div id="nature">
+                </div>
+            </div>
+            <div class="display-group">
+                <h3>Held Item</h3>
+                <div id="item">
+                </div>
+            </div>
+            <div class="display-group">
             <h3>Moveset</h3>
             <div id="moveset"></div>
+        </div>
+        <div class="modalButtons">
             <button type="button" onclick="savePokemon(event)" id="saveBtn" class="buttons">Save</button>
+            <button type="button" onclick="closeModal()" class="closeText">Close</button>
+        </div>
             <button type="button" onclick="closeModal()" id="closeBtn">X</button>
         </form>
 

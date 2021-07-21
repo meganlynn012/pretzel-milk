@@ -59,8 +59,8 @@ document.addEventListener("click", event => {
 //hide the huge pokemon list when the user chooses a name or clicks/touches outside of the input box
 function hidePokeNames() {
     if (pokeSearch === document.activeElement) {
-        pokeList.style.display = "block";
+        pokeList.classList.add("openListContainer");
     } else {
-        pokeList.style.display = "none";
+        pokeList.classList.remove("openListContainer");
     }
 }

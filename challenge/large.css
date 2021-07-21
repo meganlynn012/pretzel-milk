@@ -21,22 +21,29 @@
         grid-column: 3 /4;
         grid-row: 1 / 2;
     }
-    .listContainer {
+    .openListContainer {
         grid-column: 2 / 3;
     }
 
     /*Pokemon customize screen/modal*/
 
-    .modal {
+    .openModal {
         width: 65%;
         margin: -3em auto 3em auto;
     }
+    .modal {
+        display: none;
+    }
     .title-wrap {
         font-size: 1.5em;
+        grid-column: 1 / 3;
     }
     .title-wrap img {
         max-width: 152px;
     }
+
+
+
 
     /*Team Display Style*/
 

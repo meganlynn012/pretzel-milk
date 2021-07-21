@@ -33,6 +33,7 @@ label {
     max-width: 100%;
     text-align: center;
     font-size: xx-large;
+    padding: 0 .5em;
 }
 form {
     margin: 0 auto;
@@ -81,10 +82,7 @@ form {
     box-shadow: 2px 2px 5px #D3D3D3
 }
 .listContainer {
-    background-color: white;
-    overflow: auto;
-    text-align: center;
-    height: 80vh;
+
     display: none;
 }
 .listContainer:active {
@@ -97,14 +95,34 @@ ul {
     padding: 0;
     border: 2px solid #D3D3D3;
 }
-
+/*List animation*/
+@keyframes growDown {
+    0% {
+        transform: scaleY(0);
+    }
+    80%{
+        transform: scaleY(1.1);
+    }
+    100% {
+        transform: scaleY(1);
+    }
+}
+.openListContainer {
+    display: block;
+    background-color: white;
+    overflow: auto;
+    text-align: center;
+    height: 80vh;
+    animation: growDown 300ms ease-in-out forwards;
+    transform-origin: top center;
+}
 
 /*pokemon customize screen/modal*/
-.modal {
+.openModal {
+    display: flex;
     position: sticky;
     z-index: 1;
     top: 0;
-    display: none;
     background-color: white;
     border: 1px solid #D3D3D3;
     border-radius: 15px;
@@ -114,11 +132,18 @@ ul {
     flex-direction: column;
     height: 90vh;
     overflow: auto;
+    animation: growDown 300ms ease-in-out forwards;
+    transform-origin: top center;
+}
+.modal {
+    display: none;
+    animation: growDown 300ms ease-in-out forwards;
+    transform-origin: top center;
 }
 #type1, #type2 {
     margin: 0 0 1em 0;
 }
-.modal select {
+.openModal select {
     width: 100%;
     padding: .5em;
     margin: .75em 0;
@@ -161,6 +186,23 @@ ul {
 #closeBtn:hover {
     text-shadow: 1px 1px 2px #0B090A;
 }
+.closeText {
+    background-color: transparent;
+    color: #E5383B;
+    border: none;
+    text-decoration: underline;
+    font-size: 1em;
+    cursor: pointer;
+    width: 10%;
+    margin: 0 auto;
+}
+.closeText:hover {
+    color: #858585;
+}
+.modalButtons {
+    display: flex;
+    flex-direction: column;
+}
 
 /*button styling*/
 .buttons {
@@ -190,6 +232,8 @@ ul {
     padding: 2em 0 2em 6em;
     margin: 0 1em;
     border-bottom: 2px solid #D3D3D3;
+    animation: growDown 300ms ease-in-out forwards;
+    transform-origin: top center;
 }
 .pokeDisplay:first-child {
     border-top: 2px solid #D3D3D3;
