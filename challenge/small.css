@@ -27,6 +27,9 @@ label {
     font-weight: 700;
     font-size: 1.25em;
 }
+a {
+    color: #0B090A;
+}
 
 /*Pokemon Selector Style*/
 
