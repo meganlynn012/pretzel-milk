@@ -5,7 +5,6 @@
     .dropdown-content {
         display: grid;
         grid-template-columns: 20% auto 15%;
-        height: 10%;
         margin: 3em auto 6em auto;
         align-items: end; 
         justify-items: center;
