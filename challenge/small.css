@@ -68,6 +68,8 @@ form {
     align-items: center;
     cursor: pointer;
     white-space: nowrap;
+    width: 100%;
+    margin: 0 auto;
 }
 .pokeball-image {
     width: 50px;
